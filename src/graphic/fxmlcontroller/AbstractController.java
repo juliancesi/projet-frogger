@@ -1,8 +1,9 @@
 package graphic.fxmlcontroller;
 
 import graphic.animation.AbstractMoveAnimation;
+import graphic.animation.MoveAnimation;
 import graphic.animation.SimpleTranslation;
-import graphic.bean.IAnimationMoveProperty;
+import graphic.bean.RectangleTile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,22 +32,30 @@ public abstract class AbstractController implements Initializable {
 			}
 		}
 		else {
-			bindAnimationProperty(parent);
+			bindProperty(parent);
 		}
 	}
 
 	@FXML
-	protected void bindAnimationProperty(Node node) {
-//		if(node instanceof IAnimationMoveProperty) {
-//			System.out.println(((IAnimationMoveProperty) node).getAnimationMoveProperty());
-//			System.out.println(((IAnimationMoveProperty) node).getMoveAnimation());
+	protected void bindProperty(Node node) {
+//		if(node instanceof RectangleTile) {
+//			RectangleTile tile = (RectangleTile) node;
+//			System.out.println(tile.getCollisionsProperty());
 //			
-//			AbstractMoveAnimation n = ((IAnimationMoveProperty) node).getAnimationMoveProperty().getAnimation();
-//			n.setTile(node);
-//			((SimpleTranslation) n).play(KeyCode.UP);
+//			System.out.println(tile.getAnimationMoveProperty());
 //			
-//			System.out.println("fin");
+//			MoveAnimation animation = tile.getAnimationMoveProperty();
+//			AbstractMoveAnimation animation2 = animation.getAnimation();
+//			
+//			if(animation2 instanceof SimpleTranslation) {
+//				SimpleTranslation animation3 = (SimpleTranslation) animation2;
+//				animation3.setTile(tile);
+//			
+//				animation3.play(KeyCode.UP);
+//			}
+//		
 //		}
 	}
 	
+
 }

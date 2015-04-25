@@ -2,11 +2,12 @@ package graphic.animation;
 
 import javafx.util.Duration;
 
+
 public enum MoveAnimation {
-	TRANSLATE(new SimpleTranslation(50, Duration.millis(500))),
+	TRANSLATE(new SimpleTranslation(50, Duration.millis(300))),
 	;
 	
-	AbstractMoveAnimation animation;
+	private AbstractMoveAnimation animation;
 	MoveAnimation(AbstractMoveAnimation animation) {
 		this.animation = animation;
 	}

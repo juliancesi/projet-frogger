@@ -1,50 +1,30 @@
 package graphic.animation;
 
 import javafx.animation.TranslateTransition;
-import javafx.scene.input.KeyCode;
+import javafx.scene.Node;
 import javafx.util.Duration;
 
 public class SimpleTranslation extends AbstractMoveAnimation {
 
 	private TranslateTransition animation;
-	public SimpleTranslation(double jump, Duration duration) {
-//		super(jump, duration);
-		this.jump = jump;
-		this.duration = duration;
-		
+	public SimpleTranslation(int jump, Duration duration) {
 		animation = new TranslateTransition(duration);
+		this.setJump(jump);
 		animation.setCycleCount(1);
 	}
-	
-	protected void changeCoordinates() {
-		animation.setByX(x);
-		animation.setByY(x);
-	}
-	
-	public void play(KeyCode direction) {
-		setDirection(direction);
-		changeCoordinates();
-		animation.playFromStart();
-	}
-	
-	protected double x, y;
-	protected void setDirection(KeyCode direction) {
-		switch(direction) {
-		case UP:
-			y = jump;
-			break;
-		case DOWN:
-			y = -jump;
-			break;
-		case LEFT:
-			x = -jump;
-			break;
-		case RIGHT:
-			x = jump;
-			break;
-		default:
-			break;
-		}
-	}
 
+	public void setTile(Node tile) {
+		animation.setNode(tile);
+	}
+	
+	private void changeCoordinates() {
+		animation.setByX(x);
+		animation.setByY(y);
+	}
+	
+	@Override
+	public void play() {
+		changeCoordinates();
+		animation.play();
+	}
 }
