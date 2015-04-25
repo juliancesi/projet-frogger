@@ -1,5 +1,6 @@
 package graphic;
 
+import graphic.animation.MoveController;
 import graphic.fxmlcontroller.AbstractController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -8,10 +9,9 @@ import javafx.util.Duration;
 public class GameLoop {
 
 	private Timeline gameLoop;
-	private Class<? extends AbstractController> gameAreaController;
+	private MoveController moveController;
 	
 	public GameLoop(Class<? extends AbstractController> gameAreaController) {
-		this.gameAreaController = gameAreaController;
 		
 		buildGameLoop();
 	}
@@ -25,7 +25,7 @@ public class GameLoop {
 			// checks user event
 			
 			// move the player
-			
+			movePlayer();			
 		});
 		
 		Timeline gameLoop = new Timeline();
@@ -35,6 +35,12 @@ public class GameLoop {
 		setGameLoop(gameLoop);
 	}
 	
+	private void movePlayer() {
+		if(moveController == null) {
+			moveController = MoveController.getInstance();
+		}
+	}
+
 	private void setGameLoop(Timeline gameLoop) {
 		this.gameLoop = gameLoop;
 	}

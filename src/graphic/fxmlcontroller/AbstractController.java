@@ -1,6 +1,8 @@
 package graphic.fxmlcontroller;
 
-import graphic.bean.RectangleTile;
+import graphic.animation.AbstractMoveAnimation;
+import graphic.animation.SimpleTranslation;
+import graphic.bean.IAnimationMoveProperty;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -8,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 
 public abstract class AbstractController implements Initializable {
@@ -28,14 +31,22 @@ public abstract class AbstractController implements Initializable {
 			}
 		}
 		else {
-			bindProperty(parent);
+			bindAnimationProperty(parent);
 		}
 	}
 
 	@FXML
-	protected void bindProperty(Node node) {
-		if(node instanceof RectangleTile) {
-			System.out.println(((RectangleTile) node).getCollisionsProperty());
-		}
+	protected void bindAnimationProperty(Node node) {
+//		if(node instanceof IAnimationMoveProperty) {
+//			System.out.println(((IAnimationMoveProperty) node).getAnimationMoveProperty());
+//			System.out.println(((IAnimationMoveProperty) node).getMoveAnimation());
+//			
+//			AbstractMoveAnimation n = ((IAnimationMoveProperty) node).getAnimationMoveProperty().getAnimation();
+//			n.setTile(node);
+//			((SimpleTranslation) n).play(KeyCode.UP);
+//			
+//			System.out.println("fin");
+//		}
 	}
+	
 }

@@ -1,5 +1,6 @@
 package graphic.bean;
 
+import graphic.animation.AbstractMoveAnimation;
 import graphic.animation.MoveAnimation;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -16,7 +17,6 @@ public class RectangleTile extends Rectangle implements ICollisionsProperty, IAn
 
 	// Collisions property
 	private IntegerProperty collisionsProperty;
-	
 	@Override
 	public final void setCollisionsProperty(int value) {
 		if(collisionsProperty != null || value != 0) {
@@ -39,11 +39,11 @@ public class RectangleTile extends Rectangle implements ICollisionsProperty, IAn
 
 	// Animation property
 	private ObjectProperty<MoveAnimation> animationMoveProperty;
-	
 	@Override
 	public final void setAnimationMoveProperty(MoveAnimation value) {
 		if(animationMoveProperty != null || value != null) {
 			animationMoveProperty().set(value);
+			setMoveAnimation(value.getAnimation());
 		}
 	}
 
@@ -55,9 +55,19 @@ public class RectangleTile extends Rectangle implements ICollisionsProperty, IAn
 	@Override
 	public final ObjectProperty<MoveAnimation> animationMoveProperty() {
 		if(animationMoveProperty == null) {
-			animationMoveProperty = new SimpleObjectProperty<MoveAnimation>(this, "animationMoveProperty", null);
+			animationMoveProperty = new SimpleObjectProperty<MoveAnimation>(this, "animationProperty", null);
 		}
 		return animationMoveProperty;
 	}
+
+	private AbstractMoveAnimation moveAnimation;
+	@Override
+	public void setMoveAnimation(AbstractMoveAnimation moveAnimation) {
+		this.moveAnimation = moveAnimation;
+	}
 	
+	@Override
+	public AbstractMoveAnimation getMoveAnimation() {
+		return moveAnimation;
+	}
 }

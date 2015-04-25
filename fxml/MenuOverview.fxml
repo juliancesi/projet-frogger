@@ -23,7 +23,7 @@
                         <Font size="50.0" />
                      </font>
                   </Text>
-                  <RectangleTile arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="GREENYELLOW" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="100.0" x="200.0" y="300.0" />
+                  <RectangleTile fx:id="rectangle" animationMoveProperty="TRANSLATE" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="GREENYELLOW" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="100.0" x="100.0" y="300.0" />
                </children>
             </AnchorPane>
          </children>
