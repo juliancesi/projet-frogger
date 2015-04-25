@@ -1,6 +1,6 @@
 package graphic;
 
-import graphic.fxmlcontrollers.AbstractController;
+import graphic.fxmlcontroller.AbstractController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;

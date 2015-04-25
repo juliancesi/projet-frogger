@@ -1,6 +1,6 @@
 package graphic;
 
-import graphic.fxmlcontrollers.AbstractController;
+import graphic.fxmlcontroller.AbstractController;
 
 import java.io.File;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package graphic.fxmlcontrollers;
+package graphic.fxmlcontroller;
 
 import javafx.fxml.FXML;
 import javafx.scene.shape.Rectangle;

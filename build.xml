@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Custom Fxml Components" basedir="." default="">
+	<property name="components.dir" value="graphic"/>
+
+	<target name="1. Clean">
+	</target>
+</project>

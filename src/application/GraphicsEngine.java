@@ -1,11 +1,13 @@
 package application;
 	
-import static graphic.FxmlOverview.*;
+import static graphic.FxmlOverview.GAME;
+import static graphic.FxmlOverview.IHM;
+import static graphic.FxmlOverview.getFxmlController;
+import static graphic.FxmlOverview.loadFxmlView;
 import graphic.GameLoop;
 
 import java.io.IOException;
 
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;

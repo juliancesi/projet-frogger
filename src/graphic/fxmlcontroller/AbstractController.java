@@ -1,9 +1,10 @@
-package graphic.fxmlcontrollers;
+package graphic.fxmlcontroller;
+
+import graphic.bean.RectangleTile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import utils.Utils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -33,6 +34,8 @@ public abstract class AbstractController implements Initializable {
 
 	@FXML
 	protected void bindProperty(Node node) {
-		Utils.parseNodeId(node.getId());
+		if(node instanceof RectangleTile) {
+			System.out.println(((RectangleTile) node).getCollisionsProperty());
+		}
 	}
 }
