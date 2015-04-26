@@ -17,12 +17,13 @@ public abstract class AbstractMoveAnimation extends Transition {
 	
 	protected double x, y;
 	public void setDirection(KeyCode direction) {
+		x = y = 0;
 		switch(direction) {
 		case UP:
-			y = jump;
+			y = -jump;
 			break;
 		case DOWN:
-			y = -jump;
+			y = jump;
 			break;
 		case LEFT:
 			x = -jump;

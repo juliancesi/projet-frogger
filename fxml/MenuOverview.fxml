@@ -18,12 +18,24 @@
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0">
                <children>
-                  <Text fx:id="titre" fill="GREENYELLOW" layoutX="144.0" layoutY="150.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="FlatCuber" textAlignment="CENTER">
+                  <Text fx:id="titre" fill="GREENYELLOW" layoutX="100.0" layoutY="125.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="FlatCuber" textAlignment="CENTER">
                      <font>
                         <Font size="50.0" />
                      </font>
                   </Text>
-                  <RectangleTile fx:id="rectangle" animationMoveProperty="TRANSLATE" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="GREENYELLOW" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="100.0" x="200.0" y="300.0" />
+                  <RectangleTile fx:id="cube" animationMoveProperty="TRANSLATE" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="GREENYELLOW" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="100.0" x="200.0" y="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <VBox layoutX="40.0" layoutY="138.0" prefHeight="300.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0">
+                     <children>
+                        <Text fx:id="playGame" fill="DEEPPINK" onMouseClicked="#playGame" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAY THE GAME" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
          </children>

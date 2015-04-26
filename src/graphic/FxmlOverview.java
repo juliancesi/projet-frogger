@@ -44,7 +44,7 @@ public enum FxmlOverview {
 		return lastLayoutLoaded;
 	}
 
-	public static Class<? extends AbstractController> getFxmlController() {
+	public static AbstractController getFxmlController() {
 		return fxmlloader.getController();
 	}
 }

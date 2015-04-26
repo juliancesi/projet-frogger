@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import graphic.bean.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#move" onKeyReleased="#move" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #292929;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.fxmlcontroller.GameAreaController">
+   <center>
+      <VBox fx:id="vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: #adff2f;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="800.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+               <children>
+                  <RectangleTile fx:id="tile00" arcHeight="5.0" arcWidth="5.0" fill="#3A91A2" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
+                  <RectangleTile fx:id="tile01" arcHeight="5.0" arcWidth="5.0" fill="#112611" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="100.0" width="80.0" />
+                  <RectangleTile fx:id="tile02" arcHeight="5.0" arcWidth="5.0" fill="#3A91A2" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="200.0" width="80.0" />
+                  <RectangleTile fx:id="tile03" arcHeight="5.0" arcWidth="5.0" fill="#112611" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="300.0" width="80.0" />
+                  <RectangleTile fx:id="tile04" arcHeight="5.0" arcWidth="5.0" fill="#3A91A2" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="400.0" width="80.0" />
+
+                  <RectangleTile fx:id="tile10" arcHeight="5.0" arcWidth="5.0" fill="#0BCB02" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" translateY="100" width="80.0" />
+                  <RectangleTile fx:id="tile11" arcHeight="5.0" arcWidth="5.0" fill="#0BCB02" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="100.0" translateY="100" width="80.0" />
+                  <RectangleTile fx:id="tile12" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="200.0" translateY="100" width="80.0" />
+                  <RectangleTile fx:id="tile13" arcHeight="5.0" arcWidth="5.0" fill="#0BCB02" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="300.0" translateY="100" width="80.0" />
+                  <RectangleTile fx:id="tile14" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="400.0" translateY="100" width="80.0" />
+
+                  <RectangleTile fx:id="tile20" arcHeight="5.0" arcWidth="5.0" fill="#46E301" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" translateY="200" width="80.0" />
+                  <RectangleTile fx:id="tile21" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="100.0" translateY="200" width="80.0" />
+                  <RectangleTile fx:id="tile22" arcHeight="5.0" arcWidth="5.0" fill="#46E301" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="200.0" translateY="200" width="80.0" />
+                  <RectangleTile fx:id="tile23" arcHeight="5.0" arcWidth="5.0" fill="#46E301" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="300.0" translateY="200" width="80.0" />
+                  <RectangleTile fx:id="tile24" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="400.0" translateY="200" width="80.0" />
+
+                  <RectangleTile fx:id="tile30" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" translateY="300" width="80.0" />
+                  <RectangleTile fx:id="tile31" arcHeight="5.0" arcWidth="5.0" fill="#84FC00" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="100.0" translateY="300" width="80.0" />
+                  <RectangleTile fx:id="tile32" arcHeight="5.0" arcWidth="5.0" fill="#84FC00" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="200.0" translateY="300" width="80.0" />
+                  <RectangleTile fx:id="tile33" arcHeight="5.0" arcWidth="5.0" fill="BLACK" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="300.0" translateY="300" width="80.0" />
+                  <RectangleTile fx:id="tile34" arcHeight="5.0" arcWidth="5.0" fill="#84FC00" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="400.0" translateY="300" width="80.0" />
+                  <ImageTile fx:id="frog" animationMoveProperty="TRANSLATE" preserveRatio="true" x="200.0" y="400.0">
+                     <viewport>
+                        <Rectangle2D height="100.0" width="100.0" />
+                     </viewport>
+                     <image>
+                        <Image url="@../resources/sprites/frog.png" />
+                     </image>
+                  </ImageTile>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

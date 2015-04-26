@@ -1,30 +1,32 @@
 package graphic.fxmlcontroller;
 
-import graphic.animation.AbstractMoveAnimation;
-import graphic.animation.MoveAnimation;
-import graphic.animation.SimpleTranslation;
-import graphic.bean.RectangleTile;
+import graphic.animation.MoveController;
+import graphic.bean.IAnimationMoveProperty;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 
 public abstract class AbstractController implements Initializable {
 
+	protected MoveController moveController = MoveController.getInstance();
+	protected Map<String, Node> nodesList;
+	
 	@FXML
-	private Pane root;
-
+	Pane root;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		readAllNodes(root);
 	}
-
-	private void readAllNodes(Node parent) {
+	
+	protected void readAllNodes(Node parent) {
 		assert parent instanceof Pane;
 		if(parent instanceof Pane) {
 			for(Node n : ((Pane) parent).getChildren()) {
@@ -38,6 +40,12 @@ public abstract class AbstractController implements Initializable {
 
 	@FXML
 	protected void bindProperty(Node node) {
+		if(node instanceof IAnimationMoveProperty) {
+			if(nodesList == null) {
+				nodesList = new HashMap<String, Node>();
+			}
+			nodesList.put(node.getId(), node);
+		}
 //		if(node instanceof RectangleTile) {
 //			RectangleTile tile = (RectangleTile) node;
 //			System.out.println(tile.getCollisionsProperty());
@@ -57,5 +65,11 @@ public abstract class AbstractController implements Initializable {
 //		}
 	}
 	
+	public Node getNode(String id) {
+		if(nodesList != null || nodesList.size() > 0) {
+			return nodesList.get(id);
+		}
+		return null;
+	}
 
 }

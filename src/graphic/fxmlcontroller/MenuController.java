@@ -1,12 +1,11 @@
 package graphic.fxmlcontroller;
 
-import graphic.animation.AbstractMoveAnimation;
 import graphic.bean.RectangleTile;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.io.IOException;
 
 import javafx.fxml.FXML;
+import application.GraphicsEngine;
 
 public class MenuController extends AbstractController {
 
@@ -14,11 +13,15 @@ public class MenuController extends AbstractController {
 	}
 	
 	@FXML
-	private RectangleTile rectangle;
+	private RectangleTile cube;
 	
-	private AbstractMoveAnimation moveAnimation;
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		this.moveAnimation = rectangle.getAnimationMoveProperty().getAnimation();
+	@FXML
+	protected void playGame() {
+		try {
+			GraphicsEngine.getInstance().loadGame();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
+	
 }

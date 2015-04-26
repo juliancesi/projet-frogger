@@ -1,17 +1,28 @@
 package graphic;
 
+import graphic.animation.AbstractMoveAnimation;
 import graphic.animation.MoveController;
+import graphic.bean.IAnimationMoveProperty;
 import graphic.fxmlcontroller.AbstractController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.Node;
+import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 
 public class GameLoop {
 
 	private Timeline gameLoop;
 	private MoveController moveController;
+	private AbstractController controller;
+	private IAnimationMoveProperty frog;
+	private AbstractMoveAnimation frogAnimation;
 	
-	public GameLoop(Class<? extends AbstractController> gameAreaController) {
+	public GameLoop(AbstractController controller) {
+		this.controller = controller;
+		this.frog = (IAnimationMoveProperty) controller.getNode("frog");
+		frogAnimation = frog.getAnimationMoveProperty().getAnimation();
+		frogAnimation.setTile((Node) frog); 
 		
 		buildGameLoop();
 	}
@@ -25,7 +36,7 @@ public class GameLoop {
 			// checks user event
 			
 			// move the player
-			movePlayer();			
+			movePlayer();
 		});
 		
 		Timeline gameLoop = new Timeline();
@@ -39,6 +50,12 @@ public class GameLoop {
 		if(moveController == null) {
 			moveController = MoveController.getInstance();
 		}
+		if(moveController.isInMove()) {
+			frogAnimation.setDirection(moveController.getDirection());
+			frogAnimation.play();
+		}
+		
+		moveController.reset();
 	}
 
 	private void setGameLoop(Timeline gameLoop) {
