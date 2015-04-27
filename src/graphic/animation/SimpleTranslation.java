@@ -24,13 +24,7 @@ public class SimpleTranslation extends AbstractMoveAnimation {
 	
 	@Override
 	public void play() {
-		System.out.println(animation.getByX());
-		
 		changeCoordinates();
 		animation.play();
-		
-		System.out.println("translate: " + animation.getNode().getTranslateX() + " - " + animation.getNode().getTranslateY());
-		System.out.println("layout: " + animation.getNode().getLayoutX() + " - " + animation.getNode().getLayoutY());
-		System.out.println("parentbounds: " + animation.getNode().getBoundsInParent());
 	}
 }

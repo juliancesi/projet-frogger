@@ -5,6 +5,7 @@ import graphic.bean.IAnimationMoveProperty;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -70,6 +71,10 @@ public abstract class AbstractController implements Initializable {
 			return nodesList.get(id);
 		}
 		return null;
+	}
+
+	public Map<String, Node> getAllNodes() {
+		return nodesList;
 	}
 
 }

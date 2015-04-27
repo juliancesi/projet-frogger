@@ -16,7 +16,7 @@ public abstract class AbstractMoveAnimation extends Transition {
 	public abstract void setTile(Node tile);
 	
 	protected double x, y;
-	public void setDirection(KeyCode direction) {
+	public Double[] setDirection(KeyCode direction) {
 		x = y = 0;
 		switch(direction) {
 		case UP:
@@ -34,6 +34,8 @@ public abstract class AbstractMoveAnimation extends Transition {
 		default:
 			break;
 		}
+		
+		return new Double[] {x, y};
 	}
 
 	public abstract void play();

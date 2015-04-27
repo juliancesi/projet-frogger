@@ -24,6 +24,8 @@ public class GameAreaController extends AbstractController {
 	private AbstractMoveAnimation animation;
 	private Sprite spriteAnim;
 	private boolean jumpExecuted = false;
+
+	private double timer;
 	
 	public GameAreaController() {
 	}
@@ -35,6 +37,7 @@ public class GameAreaController extends AbstractController {
 		super.initialize(location, resources);
 		animation = frog.getAnimationMoveProperty().getAnimation();
 		animation.setTile(frog);
+		timer = animation.cycleDurationProperty().get().toMillis();
 		
 		int columns = 7;
 		int rows = 2;
@@ -42,25 +45,29 @@ public class GameAreaController extends AbstractController {
 		int height = 200 / rows;
 		Duration duration = Duration.millis(300);
 		spriteAnim = new Sprite(frog, width, height, columns, duration);
-		
+	
 	}
 	
 	@FXML
 	protected void move(KeyEvent event) {
 		if(event.getEventType() == KeyEvent.KEY_PRESSED) {
+			
 			KeyCode code = event.getCode();
-			if(!jumpExecuted && MoveKey.containsKey(code)) {
-				jumpExecuted = true;
+			if(MoveKey.containsKey(code)) {
+				double lastTyped = System.currentTimeMillis();
 
-				moveController.setMove(code);
-				
-				spriteAnim.animate(code, 1);
+				if(!jumpExecuted && lastTyped >= timer) {
+					jumpExecuted = true;
+
+					moveController.setMove(code);
+
+					spriteAnim.animate(code, 1);
+				}
 			}
 		}
 		if(event.getEventType() == KeyEvent.KEY_RELEASED && MoveKey.containsKey(event.getCode()) && jumpExecuted) {
 			jumpExecuted = false;
 		}
-	
 	}
 
 }
