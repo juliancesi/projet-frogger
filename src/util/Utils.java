@@ -1,25 +1,36 @@
 package util;
 
-import javafx.scene.input.KeyCode;
 
 public class Utils {
 	
-	public static Integer keyToInt(KeyCode key) {
-		Integer index = null;
-		switch(key) {
-		case UP:
-			index = 0;
-			break;
-		case DOWN:
-			index = 1;
-			break;
-		case LEFT:
-			index = 2;
-			break;
-		case RIGHT:
-			index = 3;
-			break;
+	public static int binaryOperationAND(int... arg) {
+		int res = 0;
+		for(int i = 0; i < arg.length - 1; i++) {
+			res += arg[i] & arg[i + 1];
 		}
-		return index;
+		return res;
+	}
+
+	public static int binaryOperationOR(int... arg) {
+		int res = 0;
+		for(int i = 0; i < arg.length - 1; i++) {
+			res += arg[i] | arg[i + 1];
+		}
+		return res;
+	}
+
+	public static int binaryOperationXOR(int... arg) {
+		int res = 0;
+		for(int i = 0; i < arg.length - 1; i++) {
+			res += arg[i] ^ arg[i + 1];
+		}
+		return res;
+	}
+
+	public static boolean isNull(String s) {
+		if(s == null || s.isEmpty()) {
+			return true;
+		}
+		return false;
 	}
 }

@@ -18,30 +18,51 @@
          <children>
             <AnchorPane maxHeight="800.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
                <children>
-                  <RectangleTile fx:id="tile00" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="#3A91A2" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
-                  <RectangleTile fx:id="tile01" arcHeight="5.0" arcWidth="5.0" fill="#112611" height="80.0" layoutX="110.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile02" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="#3A91A2" height="80.0" layoutX="210.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile03" arcHeight="5.0" arcWidth="5.0" fill="#112611" height="80.0" layoutX="310.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile04" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="#3A91A2" height="80.0" layoutX="410.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <AnchorPane fx:id="ihm" prefHeight="500.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fx:id="vie1" fitHeight="50.0" fitWidth="50.0" layoutX="-6.0" layoutY="457.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <image>
+                              <Image url="@../resources/mouche.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="vie2" fitHeight="50.0" fitWidth="50.0" layoutX="31.0" layoutY="457.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <image>
+                              <Image url="@../resources/mouche.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="vie3" fitHeight="50.0" fitWidth="50.0" layoutX="68.0" layoutY="457.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <image>
+                              <Image url="@../resources/mouche.png" />
+                           </image>
+                        </ImageView>
+                        <ProgressBar fx:id="timer" layoutX="416.0" layoutY="478.0" prefHeight="18.0" prefWidth="80.0" progress="0.0" />
+                     </children>
+                  </AnchorPane>
+                  <RectangleTile fx:id="tile00" arcHeight="5.0" arcWidth="5.0" collisionsProperty="4" fill="#3A91A2" height="80.0" layoutX="10.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
+                  <RectangleTile fx:id="tile01" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#112611" height="80.0" layoutX="110.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile02" arcHeight="5.0" arcWidth="5.0" collisionsProperty="4" fill="#3A91A2" height="80.0" layoutX="210.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile03" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#112611" height="80.0" layoutX="310.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile04" arcHeight="5.0" arcWidth="5.0" collisionsProperty="4" fill="#3A91A2" height="80.0" layoutX="410.0" layoutY="10.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
 
-                  <RectangleTile fx:id="tile10" arcHeight="5.0" arcWidth="5.0" fill="#0BCB02" height="80.0" layoutX="10.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
-                  <RectangleTile fx:id="tile11" arcHeight="5.0" arcWidth="5.0" fill="#0BCB02" height="80.0" layoutX="110.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile12" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="BLACK" height="80.0" layoutX="210.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile13" arcHeight="5.0" arcWidth="5.0" fill="#0BCB02" height="80.0" layoutX="310.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile14" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="BLACK" height="80.0" layoutX="410.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile10" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#0BCB02" height="80.0" layoutX="10.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
+                  <RectangleTile fx:id="tile11" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#0BCB02" height="80.0" layoutX="110.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile12" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="BLACK" height="80.0" layoutX="210.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile13" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#0BCB02" height="80.0" layoutX="310.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile14" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="BLACK" height="80.0" layoutX="410.0" layoutY="110.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
 
-                  <RectangleTile fx:id="tile20" arcHeight="5.0" arcWidth="5.0" fill="#46E301" height="80.0" layoutX="10.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
-                  <RectangleTile fx:id="tile21" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="BLACK" height="80.0" layoutX="110.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile22" arcHeight="5.0" arcWidth="5.0" fill="#46E301" height="80.0" layoutX="210.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile23" arcHeight="5.0" arcWidth="5.0" fill="#46E301" height="80.0" layoutX="310.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile24" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="BLACK" height="80.0" layoutX="410.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile20" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#46E301" height="80.0" layoutX="10.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
+                  <RectangleTile fx:id="tile21" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="BLACK" height="80.0" layoutX="110.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile22" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#46E301" height="80.0" layoutX="210.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile23" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#46E301" height="80.0" layoutX="310.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile24" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="BLACK" height="80.0" layoutX="410.0" layoutY="210.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
 
-                  <RectangleTile fx:id="tile30" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="BLACK" height="80.0" layoutX="10.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
-                  <RectangleTile fx:id="tile31" arcHeight="5.0" arcWidth="5.0" fill="#84FC00" height="80.0" layoutX="110.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile32" arcHeight="5.0" arcWidth="5.0" fill="#84FC00" height="80.0" layoutX="210.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile33" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="BLACK" height="80.0" layoutX="310.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <RectangleTile fx:id="tile34" arcHeight="5.0" arcWidth="5.0" fill="#84FC00" height="80.0" layoutX="410.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
-                  <ImageTile fx:id="frog" animationMoveProperty="TRANSLATE" layoutX="200.0" layoutY="395.0" preserveRatio="true">
+                  <RectangleTile fx:id="tile30" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="BLACK" height="80.0" layoutX="10.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" translateX="000.0" width="80.0" />
+                  <RectangleTile fx:id="tile31" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#84FC00" height="80.0" layoutX="110.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile32" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#84FC00" height="80.0" layoutX="210.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile33" arcHeight="5.0" arcWidth="5.0" collisionsProperty="1" fill="BLACK" height="80.0" layoutX="310.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile fx:id="tile34" arcHeight="5.0" arcWidth="5.0" collisionsProperty="2" fill="#84FC00" height="80.0" layoutX="410.0" layoutY="310.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="80.0" />
+                  <RectangleTile collisionsProperty="2" fill="TRANSPARENT" height="80.0" layoutX="10.0" layoutY="410.0" width="480.0" />
+                  <ImageTile fx:id="frog" animationMoveProperty="TRANSLATE" collisionsProperty="3" layoutX="200.0" layoutY="395.0" preserveRatio="true">
                      <viewport>
                         <Rectangle2D height="100.0" width="100.0" />
                      </viewport>

@@ -1,7 +1,5 @@
 package collisions;
 
-import graphic.bean.ICollisionsProperty;
-
 import java.util.Map;
 
 import javafx.scene.Node;
@@ -30,52 +28,47 @@ public class CollisionsEngine {
 
 	public CollisionsEngine(Node player, Map<String, Node> nodesList) {
 		this.playerNode = player;
-		this.nodesList = nodesList;
+		this.setNodesList(nodesList);
 	}
 
 	public void setPlayerNode(Node player) {
 		playerNode = player;
 	}
 
-	public void setNodesList(Map<String, Node> nodesList) {
+	private void setNodesList(Map<String, Node> nodesList) {
 		this.nodesList = nodesList;
+		this.nodesList.remove(playerNode.getId());
 	}
-	
+
 	private boolean intersect(Node player, Node node) {
 		return player.getBoundsInParent().intersects(node.getBoundsInParent());
 	}
 
-	public int checkBounds(Node player) {
+	public Node checkNodeCollisions(Node player) {
 		for(String key : nodesList.keySet()) {
 
 			if(player != nodesList.get(key)) {
 				Node node = nodesList.get(key);
-				
+
 				if(intersect(player, node)) {
-					if(node instanceof ICollisionsProperty) {
-						int coll = ((ICollisionsProperty) node).getCollisionsProperty();
-						
-						return coll;
-					}
+					return node;
 				}
 			}
 		}
-		return 0;
+		return null;
 	}
-	
-	public int checkBounds() {
-		return checkBounds(playerNode);
+
+	public Node checkNodeCollisions() {
+		return checkNodeCollisions(playerNode);
 	}
-	
-	public int checkBoundsFuture(Node player, Double[] future) {
-		Node playerFuture = new Rectangle(player.getBoundsInParent().getMaxX(), player.getBoundsInParent().getMaxY() ,player.getBoundsInParent().getWidth(), player.getBoundsInParent().getHeight());
-		double x = player.getLayoutX() + future[0];
-		double y = player.getLayoutY() + future[1];
-		playerFuture.relocate(x, y);
+
+	public Node checkCollisionsFuture(Double[] xy) {
+		Node rectangleFuture = new Rectangle(playerNode.getBoundsInParent().getWidth(), playerNode.getBoundsInParent().getHeight());
+		rectangleFuture.setId("frogFuture");
+		double x = playerNode.getLayoutX() + playerNode.getTranslateX() + xy[0];
+		double y = playerNode.getLayoutY() + playerNode.getTranslateY() + xy[1];
+		rectangleFuture.relocate(x, y);
 		
-		System.out.println("frog: " + player.getBoundsInParent());
-		System.out.println("future: " + playerFuture.getBoundsInParent());
-		
-		return checkBounds(playerFuture);
+		return checkNodeCollisions(rectangleFuture);
 	}
 }

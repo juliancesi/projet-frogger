@@ -16,7 +16,7 @@ public abstract class AbstractMoveAnimation extends Transition {
 	public abstract void setTile(Node tile);
 	
 	protected double x, y;
-	public Double[] setDirection(KeyCode direction) {
+	public void setDirection(KeyCode direction) {
 		x = y = 0;
 		switch(direction) {
 		case UP:
@@ -35,9 +35,21 @@ public abstract class AbstractMoveAnimation extends Transition {
 			break;
 		}
 		
-		return new Double[] {x, y};
+		setCoordinates(x, y);
 	}
 
+	protected void setCoordinates(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public Double[] getCoordinates() {
+		if(x != 0 || y != 0) {
+			return new Double[] {x, y};
+		}
+		return null;
+	}
+	
 	public abstract void play();
 	
 	@Override

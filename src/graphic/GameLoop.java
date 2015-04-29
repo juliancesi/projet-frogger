@@ -1,14 +1,16 @@
 package graphic;
 
+import rules.RulesKeeper;
 import graphic.animation.AbstractMoveAnimation;
 import graphic.animation.MoveController;
 import graphic.bean.IAnimationMoveProperty;
+import graphic.bean.ICollisionsProperty;
 import graphic.fxmlcontroller.AbstractController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
-import javafx.scene.layout.Region;
 import javafx.util.Duration;
+import util.Utils;
 import collisions.CollisionsEngine;
 
 public class GameLoop {
@@ -16,14 +18,15 @@ public class GameLoop {
 	private Timeline gameLoop;
 	private MoveController moveController;
 	private AbstractController controller;
-	private IAnimationMoveProperty frog;
+	private Node frog;
 	private AbstractMoveAnimation frogAnimation;
 	private CollisionsEngine collisionsEngine;
+	private RulesKeeper rulesKeeper;
 
 	public GameLoop(AbstractController controller) {
 		this.controller = controller;
-		this.frog = (IAnimationMoveProperty) controller.getNode("frog");
-		frogAnimation = frog.getAnimationMoveProperty().getAnimation();
+		this.frog = (Node) controller.getNode("frog");
+		frogAnimation = ((IAnimationMoveProperty) frog).getAnimationMoveProperty().getAnimation();
 		frogAnimation.setTile((Node) frog); 
 
 		collisionsEngine = CollisionsEngine.getInstance((Node) frog, controller.getAllNodes());
@@ -36,15 +39,15 @@ public class GameLoop {
 		KeyFrame loopFrame = new KeyFrame(loopSpeed, actionEvent -> {
 			// instructions called for each iteration
 			// checks collisions
-//			int collision = collisionsEngine.checkBounds();
-//			switch(collision) {
-//			case 1:
-//				System.out.println("bloque");
-//				break;
-//			case 2:
-//				System.out.println("mort");
-//				break;
-//			}
+			Node collidedNode = collisionsEngine.checkNodeCollisions();
+			if(collidedNode != null) {
+				if(collidedNode instanceof ICollisionsProperty) {
+					int collision = ((ICollisionsProperty) collidedNode).getCollisionsProperty();
+					if((Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collision)) == 1) {
+						System.out.println("mort !");
+					}
+				}
+			}
 
 			// move the player
 			movePlayer();
@@ -62,12 +65,19 @@ public class GameLoop {
 			moveController = MoveController.getInstance();
 		}
 		if(moveController.isInMove()) {
-			Double[] future = frogAnimation.setDirection(moveController.getDirection());
+			frogAnimation.setDirection(moveController.getDirection());
 			
-			int collisionsFuture = collisionsEngine.checkBoundsFuture((Node) frog, future);
-			System.out.println(collisionsFuture);
-			
-			frogAnimation.play();
+			Double[] xy = frogAnimation.getCoordinates();
+			Node collidedNode = null;
+			if((collidedNode  = collisionsEngine.checkCollisionsFuture(xy)) != null) {
+				int collisionProperty = ((ICollisionsProperty) collidedNode).getCollisionsProperty();
+				
+				int res = Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collisionProperty);
+				if(res != 0) {
+					frogAnimation.play();
+				}
+			}
+
 		}
 
 		moveController.reset();
