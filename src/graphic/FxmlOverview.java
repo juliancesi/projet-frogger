@@ -14,7 +14,7 @@ import javafx.scene.layout.Pane;
 
 public enum FxmlOverview {
 	IHM("/fxml/MenuOverview.fxml"),
-	GAME("/fxml/GameOverview.fxml");
+	GAME("/fxml/GameHexaTile.fxml");
 	
 	private String fxmlFile;
 	private static FXMLLoader fxmlloader;

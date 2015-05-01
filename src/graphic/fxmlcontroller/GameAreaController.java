@@ -1,8 +1,8 @@
 package graphic.fxmlcontroller;
 
 import graphic.animation.AbstractMoveAnimation;
-import graphic.animation.Sprite;
 import graphic.animation.MoveController.MoveKey;
+import graphic.animation.Sprite;
 import graphic.bean.ImageTile;
 
 import java.net.URL;
@@ -32,7 +32,7 @@ public class GameAreaController extends AbstractController {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		frog.setEffect(new DropShadow(BlurType.THREE_PASS_BOX, Color.BLACK.deriveColor(0, 0, 0, 1), 5, 0, 5, 5));
+		frog.setEffect(new DropShadow(BlurType.THREE_PASS_BOX, Color.BLACK.deriveColor(0, 0, 0, 0.5), 5, 0, 5, 5));
 		
 		super.initialize(location, resources);
 		animation = frog.getAnimationMoveProperty().getAnimation();

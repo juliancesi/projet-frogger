@@ -7,9 +7,11 @@ import javafx.scene.input.KeyCode;
 
 public abstract class AbstractMoveAnimation extends Transition {
 	
-	protected int jump;
-	public void setJump(int jump) {
-		this.jump = jump;
+	protected int gapX;
+	protected int gapY;
+	public void setJump(int gapX, int gapY) {
+		this.gapX = gapX;
+		this.gapY = gapY;
 	}
 	
 	protected Node tile;
@@ -20,16 +22,16 @@ public abstract class AbstractMoveAnimation extends Transition {
 		x = y = 0;
 		switch(direction) {
 		case UP:
-			y = -jump;
+			y = -gapY;
 			break;
 		case DOWN:
-			y = jump;
+			y = gapY;
 			break;
 		case LEFT:
-			x = -jump;
+			x = -gapX;
 			break;
 		case RIGHT:
-			x = jump;
+			x = gapX;
 			break;
 		default:
 			break;

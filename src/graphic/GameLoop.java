@@ -1,6 +1,5 @@
 package graphic;
 
-import rules.RulesKeeper;
 import graphic.animation.AbstractMoveAnimation;
 import graphic.animation.MoveController;
 import graphic.bean.IAnimationMoveProperty;
@@ -10,6 +9,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.util.Duration;
+import rules.RulesKeeper;
 import util.Utils;
 import collisions.CollisionsEngine;
 
@@ -39,6 +39,7 @@ public class GameLoop {
 		KeyFrame loopFrame = new KeyFrame(loopSpeed, actionEvent -> {
 			// instructions called for each iteration
 			// checks collisions
+			System.out.println("test");
 			Node collidedNode = collisionsEngine.checkNodeCollisions();
 			if(collidedNode != null) {
 				if(collidedNode instanceof ICollisionsProperty) {
@@ -68,6 +69,7 @@ public class GameLoop {
 			frogAnimation.setDirection(moveController.getDirection());
 			
 			Double[] xy = frogAnimation.getCoordinates();
+			
 			Node collidedNode = null;
 			if((collidedNode  = collisionsEngine.checkCollisionsFuture(xy)) != null) {
 				int collisionProperty = ((ICollisionsProperty) collidedNode).getCollisionsProperty();

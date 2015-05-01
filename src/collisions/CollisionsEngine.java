@@ -51,6 +51,7 @@ public class CollisionsEngine {
 				Node node = nodesList.get(key);
 
 				if(intersect(player, node)) {
+					System.out.println(String.format("avec %1s", node.getId()));
 					return node;
 				}
 			}
@@ -65,8 +66,8 @@ public class CollisionsEngine {
 	public Node checkCollisionsFuture(Double[] xy) {
 		Node rectangleFuture = new Rectangle(playerNode.getBoundsInParent().getWidth(), playerNode.getBoundsInParent().getHeight());
 		rectangleFuture.setId("frogFuture");
-		double x = playerNode.getLayoutX() + playerNode.getTranslateX() + xy[0];
-		double y = playerNode.getLayoutY() + playerNode.getTranslateY() + xy[1];
+		double x = playerNode.getLayoutX() + playerNode.getTranslateX() + xy[0] -25;
+		double y = playerNode.getLayoutY() + playerNode.getTranslateY() + xy[1] -25;
 		rectangleFuture.relocate(x, y);
 		
 		return checkNodeCollisions(rectangleFuture);

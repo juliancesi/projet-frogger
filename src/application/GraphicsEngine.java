@@ -5,7 +5,6 @@ import static graphic.FxmlOverview.IHM;
 import static graphic.FxmlOverview.getFxmlController;
 import static graphic.FxmlOverview.loadFxmlView;
 import graphic.GameLoop;
-import graphic.fxmlcontroller.AbstractController;
 
 import java.io.IOException;
 
@@ -27,8 +26,8 @@ public class GraphicsEngine {
 	public GraphicsEngine(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
 		primaryStage.setTitle("Mon Application");
-		primaryStage.setWidth(800);
-		primaryStage.setHeight(800);
+//		primaryStage.setWidth(800);
+//		primaryStage.setHeight(800);
 
 		if(instance == null) {
 			instance = this;

@@ -35,11 +35,6 @@ public class Sprite extends Transition {
 		offsetY = keyToY(sens);
 		setCycleCount(cycleCount);
 		playFromStart();
-//		setOnFinished(actionEvent -> {
-//			System.out.println("translate: " + imageView.getTranslateX() + " - " + imageView.getTranslateY());
-//			System.out.println("layout: " + imageView.getLayoutX() + " - " + imageView.getLayoutY());
-//			System.out.println("parentbounds: " + imageView.getBoundsInParent());
-//		});
 	}
 	
 	@Override

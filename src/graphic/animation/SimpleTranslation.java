@@ -7,9 +7,9 @@ import javafx.util.Duration;
 public class SimpleTranslation extends AbstractMoveAnimation {
 
 	private TranslateTransition animation;
-	public SimpleTranslation(int jump, Duration duration) {
+	public SimpleTranslation(int gapX, int gapY, Duration duration) {
 		animation = new TranslateTransition(duration);
-		this.setJump(jump);
+		this.setJump(gapX, gapY);
 		animation.setCycleCount(1);
 	}
 

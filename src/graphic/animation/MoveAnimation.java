@@ -4,7 +4,7 @@ import javafx.util.Duration;
 
 
 public enum MoveAnimation {
-	TRANSLATE(new SimpleTranslation(100, Duration.millis(250))),
+	TRANSLATE(new SimpleTranslation(75, 65, Duration.millis(250))),
 	;
 	
 	private AbstractMoveAnimation animation;
