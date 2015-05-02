@@ -1,6 +1,7 @@
 package graphic;
 
 import graphic.animation.AbstractMoveAnimation;
+import graphic.animation.AnimationController;
 import graphic.animation.MoveController;
 import graphic.bean.IAnimationMoveProperty;
 import graphic.bean.ICollisionsProperty;
@@ -11,10 +12,7 @@ import java.util.Map;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import rules.RulesKeeper;
 import util.Utils;
 import collisions.CollisionsEngine;
 
@@ -26,8 +24,8 @@ public class GameLoop {
 	private Node frog;
 	private AbstractMoveAnimation frogAnimation;
 	private CollisionsEngine collisionsEngine;
-	private RulesKeeper rulesKeeper;
-
+	private AnimationController animationController = AnimationController.getInstance();
+	
 	public GameLoop(AbstractController controller) {
 		this.controller = controller;
 		this.frog = (Node) controller.getNode("frog");
@@ -37,6 +35,16 @@ public class GameLoop {
 		collisionsEngine = CollisionsEngine.getInstance((Node) frog, controller.getAllNodes());
 
 		buildGameLoop();
+		
+		Map<String, Node> nodesList;
+		for(String key : (nodesList = controller.getAllNodes()).keySet()) {
+			if(nodesList.get(key) instanceof IAnimationMoveProperty) {
+				IAnimationMoveProperty node = (IAnimationMoveProperty) nodesList.get(key);
+				if(node.getMoveAnimation() != null) {
+					animationController.addNode((Node) node);
+				}
+			}
+		}
 	}
 
 	private void buildGameLoop() {
@@ -44,7 +52,7 @@ public class GameLoop {
 		KeyFrame loopFrame = new KeyFrame(loopSpeed, actionEvent -> {
 			// instructions called for each iteration
 			moveObjects();
-
+			
 			// checks collisions
 			Node collidedNode = collisionsEngine.checkNodeCollisions();
 			if(collidedNode != null) {
@@ -68,32 +76,9 @@ public class GameLoop {
 	}
 
 	private void moveObjects() {
-		Map<String, Node> nodesList = controller.getAllNodes();
-		for(String key : nodesList.keySet()) {
-			if(nodesList.get(key) instanceof IAnimationMoveProperty) {
-				IAnimationMoveProperty node = (IAnimationMoveProperty) nodesList.get(key);
-				if(node.getMoveAnimation() != null) {
-
-					double rightBottX = ((Node) node).getBoundsInParent().getMaxX();
-					double rightBottY = ((Node) node).getBoundsInParent().getMaxY();
-
-					if(rightBottX < 0 || rightBottY < 0) {
-						((Node) node).setTranslateX(200);
-					}
-					
-					AbstractMoveAnimation animation = node.getAnimationMoveProperty().getAnimation();
-					animation.setTile((Node) node);
-				
-					if(((Node) node).getId() == "camion1") {
-						System.out.printf("Node: %1s, Animation: %2s", node, node.getAnimationMoveProperty());
-						System.out.println();
-					}
-					
-					animation.play();
-				}
-			}
-
-		}
+//		animationController.playAnimation();
+		
+		animationController.playAnimation("camion");
 	}
 
 	private void movePlayer() {

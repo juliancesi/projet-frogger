@@ -818,6 +818,8 @@
 								<Image url="@../resources/tileFrog.png" />
 							</image>
 						</ImageTile>
+                  <RectangleTile fx:id="camion" animationMoveProperty="VEHICULES" collisionsProperty="1" height="50.0" layoutX="687.0" layoutY="466.0" width="100.0" />
+                  <RectangleTile fx:id="voiture" animationMoveProperty="VEHICULES" collisionsProperty="1" height="35.0" layoutX="488.0" layoutY="474.0" width="75.0" />
 					</children>
 				</AnchorPane>
 			</children>
