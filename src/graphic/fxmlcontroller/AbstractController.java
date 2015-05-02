@@ -38,7 +38,6 @@ public abstract class AbstractController implements Initializable {
 		}
 	}
 
-	@FXML
 	protected void bindProperty(Node node) {
 		if(node instanceof IAnimationMoveProperty) {
 			if(nodesList == null) {
@@ -63,6 +62,10 @@ public abstract class AbstractController implements Initializable {
 //			}
 //		
 //		}
+	}
+	
+	public Pane getRootPane() {
+		return root;
 	}
 	
 	public Node getNode(String id) {

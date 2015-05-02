@@ -2,6 +2,7 @@ package graphic.animation;
 
 import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
+import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 
 public class SimpleTranslation extends AbstractMoveAnimation {
@@ -11,6 +12,11 @@ public class SimpleTranslation extends AbstractMoveAnimation {
 		animation = new TranslateTransition(duration);
 		this.setJump(gapX, gapY);
 		animation.setCycleCount(1);
+	}
+	
+	public SimpleTranslation(int gapX, int gapY, Duration duration, KeyCode direction) {
+		this(gapX, gapY, duration);
+		this.setDirection(direction);
 	}
 
 	public void setTile(Node tile) {

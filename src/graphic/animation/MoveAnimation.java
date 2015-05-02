@@ -1,10 +1,12 @@
 package graphic.animation;
 
+import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 
 
 public enum MoveAnimation {
 	TRANSLATE(new SimpleTranslation(75, 65, Duration.millis(250))),
+	VEHICULES(new SimpleTranslation(10, 0, Duration.millis(10), KeyCode.LEFT))
 	;
 	
 	private AbstractMoveAnimation animation;

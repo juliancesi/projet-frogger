@@ -11,15 +11,15 @@ import javafx.util.Duration;
 public class Sprite extends Transition {
 
 	private ImageView imageView;
-	private int width;
-	private int height;
+	private double width;
+	private double height;
 	private int columns;
 	private int count;
 	private int offsetY;
 	
 	private int lastIndex;
 
-	public Sprite(ImageView imageView, int width, int height, 
+	public Sprite(ImageView imageView, double width, double height, 
 			int columns, Duration duration) {
 		this.imageView = imageView;
 		this.width = width;
@@ -41,8 +41,8 @@ public class Sprite extends Transition {
 	protected void interpolate(double frac) {
 		final int index = Math.min((int) Math.floor(frac * count), count - 1);
         if (index != lastIndex) {
-            final int x = (index % columns) * width;
-            final int y = offsetY * height;
+            final double x = (index % columns) * width;
+            final double y = offsetY * height;
             imageView.setViewport(new Rectangle2D(x, y, width, height));
             lastIndex = index;
         }

@@ -40,9 +40,9 @@ public class GameAreaController extends AbstractController {
 		timer = animation.cycleDurationProperty().get().toMillis();
 		
 		int columns = 7;
-		int rows = 2;
-		int width = 693 / columns;
-		int height = 200 / rows;
+		int rows = 4;
+		double width = frog.getImage().getWidth() / columns;
+		double height = frog.getImage().getHeight() / rows;
 		Duration duration = Duration.millis(300);
 		spriteAnim = new Sprite(frog, width, height, columns, duration);
 	
