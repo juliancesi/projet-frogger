@@ -32,13 +32,11 @@ public class UtilsTest {
 		assertEquals("3&1 operation failed", resAND, 1);
 		assertEquals("3|1 operation failed", resOR, 3);
 		assertEquals("3^1 operation failed", resXOR, 2);
-		
 	}
 	
 	@Test
 	public void isNull() {
 		assertTrue("empty string", Utils.isNull(""));
 		assertTrue("null string", Utils.isNull(null));
-		
 	}
 }

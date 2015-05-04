@@ -1,7 +1,13 @@
 package collisions;
 
+import graphic.animation.AbstractMoveAnimation;
+import graphic.animation.MoveAnimation;
+import graphic.bean.IAnimationMoveProperty;
+import graphic.bean.ICollisionsProperty;
+
 import java.util.Map;
 
+import util.Utils;
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -46,10 +52,12 @@ public class CollisionsEngine {
 		return player.getBoundsInParent().intersects(node.getBoundsInParent());
 	}
 
-	private boolean circleIntersect(Node player, Node node) {
+	private boolean circleIntersect(Node player, Node node, int tolerance) {
 		// rayon
-		rPlayer = ((player.getBoundsInLocal().getWidth() + player.getBoundsInLocal().getHeight()) / 2) / 2 - 20; // le vide autour de la grenouille n'est pas compté
-		double rNode = ((node.getBoundsInLocal().getWidth() + node.getBoundsInLocal().getHeight()) / 2) / 2 - 10; 
+		rPlayer = ((player.getBoundsInLocal().getWidth() + player.getBoundsInLocal().getHeight()) / 2) / 2; // le vide autour de la grenouille n'est pas compté
+		rPlayer -= tolerance * (rPlayer / 100);
+		double rNode = ((node.getBoundsInLocal().getWidth() + node.getBoundsInLocal().getHeight()) / 2) / 2;
+		rNode -= tolerance * (rNode / 100);
 		
 		// centre
 		double xPlayer = player.getBoundsInParent().getMinX() + rPlayer;
@@ -57,20 +65,18 @@ public class CollisionsEngine {
 		double xNode = node.getBoundsInParent().getMinX() + rNode;
 		double yNode = node.getBoundsInParent().getMinY() + rNode;
 		
-
-		// cas des rectangles
-		if((node.getBoundsInParent().getWidth() > node.getBoundsInParent().getHeight() + 15) || node.getBoundsInParent().getHeight() > node.getBoundsInParent().getWidth() + 15) {
-			Circle cPlayer = new Circle(rPlayer);
-			cPlayer.relocate(xPlayer, yPlayer);
-			return intersect(cPlayer, node);
-		}
-		
 		double authorizedLength = Math.pow(rPlayer + rNode, 2);
 
 		double X = Math.pow(xPlayer - xNode, 2);
 		double Y = Math.pow(yPlayer - yNode, 2);
 	
 		double realLength = X + Y;
+		
+		// Camion / Voiture
+		MoveAnimation animation = ((IAnimationMoveProperty) node).getAnimationMoveProperty();
+		if(animation == MoveAnimation.LEFT_TRANSLATION || animation == MoveAnimation.RIGHT_TRANSLATION) {
+			return intersect(player, node);
+		}
 		
 		if(realLength < authorizedLength) {
 			return true;
@@ -85,7 +91,7 @@ public class CollisionsEngine {
 			if(player != nodesList.get(key)) {
 				Node node = nodesList.get(key);
 
-				if(circleIntersect(player, node)) {
+				if(circleIntersect(player, node, 20)) {
 					return node;
 				}
 			}

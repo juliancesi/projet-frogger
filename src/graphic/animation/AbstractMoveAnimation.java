@@ -7,9 +7,9 @@ import javafx.scene.input.KeyCode;
 
 public abstract class AbstractMoveAnimation extends Transition {
 	
-	protected int gapX;
-	protected int gapY;
-	public void setJump(int gapX, int gapY) {
+	protected double gapX;
+	protected double gapY;
+	public void setJump(double gapX, double gapY) {
 		this.gapX = gapX;
 		this.gapY = gapY;
 	}

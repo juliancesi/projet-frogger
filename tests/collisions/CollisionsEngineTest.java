@@ -25,20 +25,24 @@ public class CollisionsEngineTest {
 	@Before
 	public void prepareMap() {
 		rec1 = new Rectangle(0, 0, 50, 50);
+		rec1.setId("rec1");
 		rec2 = new Rectangle(0, 0, 50, 50);
-		
+		rec2.setId("rec2");
+
 		rec1Property = new RectangleTile();
 		rec1Property.relocate(0, 0);
 		rec1Property.setWidth(50);
 		rec1Property.setHeight(50);
 		rec1Property.setCollisionsProperty(1);
+		rec1Property.setId("rec1Property");
 		
 		rec2Property = new RectangleTile();
 		rec2Property.relocate(0, 0);
 		rec2Property.setWidth(50);
 		rec2Property.setHeight(50);
 		rec2Property.setCollisionsProperty(1);
-		
+		rec2Property.setId("rec2Property");
+
 		Map<String, Node> list = new HashMap<String, Node>();
 		list.put("rec2Property", rec2Property);
 		colEng = new CollisionsEngine(rec1Property, list);
@@ -81,4 +85,13 @@ public class CollisionsEngineTest {
 		assertNull(colEng.checkCollisionsFuture(new Double[] {55.0, 0.0}));
 	}
 	
+	@Test
+	public void circleIntersectOK_KO() {
+		rec2Property.setWidth(200);
+		rec2Property.setHeight(200);
+		assertEquals(colEng.checkNodeCollisions(), rec2Property);
+		
+		rec1Property.setLayoutX(180);
+		assertNull(colEng.checkNodeCollisions());
+	}
 }

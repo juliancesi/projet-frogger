@@ -6,6 +6,7 @@ import graphic.animation.MoveController;
 import graphic.bean.IAnimationMoveProperty;
 import graphic.bean.ICollisionsProperty;
 import graphic.fxmlcontroller.AbstractController;
+import graphic.fxmlcontroller.GameAreaController;
 
 import java.util.Map;
 
@@ -13,6 +14,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.util.Duration;
+import rules.RulesKeeper;
 import util.Utils;
 import collisions.CollisionsEngine;
 
@@ -25,6 +27,7 @@ public class GameLoop {
 	private AbstractMoveAnimation frogAnimation;
 	private CollisionsEngine collisionsEngine;
 	private AnimationController animationController = AnimationController.getInstance();
+	private RulesKeeper rulesKeeper = new RulesKeeper(60);
 	
 	public GameLoop(AbstractController controller) {
 		this.controller = controller;
@@ -51,6 +54,11 @@ public class GameLoop {
 		Duration loopSpeed = Duration.millis(1000 / (float) 30);
 		KeyFrame loopFrame = new KeyFrame(loopSpeed, actionEvent -> {
 			// instructions called for each iteration
+			// timer
+			rulesKeeper.checkTimer();
+			updateBar(rulesKeeper.getTimeToEnd());
+			
+			// obstacles
 			moveObjects();
 			
 			// checks collisions
@@ -75,10 +83,12 @@ public class GameLoop {
 		setGameLoop(gameLoop);
 	}
 
+	private void updateBar(long timer) {
+		((GameAreaController) controller).updateTimerBar(timer);
+	}
+
 	private void moveObjects() {
-//		animationController.playAnimation();
-		
-		animationController.playAnimation("camion");
+		animationController.playAnimation();
 	}
 
 	private void movePlayer() {
@@ -115,6 +125,7 @@ public class GameLoop {
 
 	public void startGame() {
 		getGameLoop().playFromStart();
+		rulesKeeper.startTimer();
 	}
 
 	public void stopGame() {

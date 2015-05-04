@@ -8,13 +8,13 @@ import javafx.util.Duration;
 public class SimpleTranslation extends AbstractMoveAnimation {
 
 	private TranslateTransition animation;
-	public SimpleTranslation(int gapX, int gapY, Duration duration) {
+	public SimpleTranslation(double gapX, double gapY, Duration duration) {
 		animation = new TranslateTransition(duration);
 		this.setJump(gapX, gapY);
 		animation.setCycleCount(1);
 	}
 	
-	public SimpleTranslation(int gapX, int gapY, Duration duration, KeyCode direction) {
+	public SimpleTranslation(double gapX, double gapY, Duration duration, KeyCode direction) {
 		this(gapX, gapY, duration);
 		this.setDirection(direction);
 	}

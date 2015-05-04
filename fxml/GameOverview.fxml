@@ -70,6 +70,8 @@
                         <Image url="@../resources/sprites/frog.png" />
                      </image>
                   </ImageTile>
+                  <RectangleTile fx:id="camion" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" height="50.0" layoutX="400.0" layoutY="325.0" width="100.0" />
+                  <RectangleTile fx:id="voiture" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" height="40.0" layoutY="225.0" width="75.0" />
                </children>
             </AnchorPane>
          </children>
