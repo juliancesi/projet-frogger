@@ -1,14 +1,10 @@
 package graphic.bean;
 
-import graphic.animation.AbstractMoveAnimation;
-import graphic.animation.MoveAnimation;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.image.ImageView;
 
-public class ImageTile extends ImageView implements ICollisionsProperty, IAnimationMoveProperty {
+public class ImageTile extends ImageView implements ICollisionsProperty {
 
 	public ImageTile() {
 		super();
@@ -36,37 +32,4 @@ public class ImageTile extends ImageView implements ICollisionsProperty, IAnimat
 		return collisionsProperty;
 	}
 
-	// Animation property
-	private ObjectProperty<MoveAnimation> animationMoveProperty;
-	@Override
-	public final void setAnimationMoveProperty(MoveAnimation value) {
-		if(animationMoveProperty != null || value != null) {
-			animationMoveProperty().set(value);
-			setMoveAnimation(value.getAnimation());
-		}
-	}
-
-	@Override
-	public final MoveAnimation getAnimationMoveProperty() {
-		return animationMoveProperty == null ? null : animationMoveProperty.get();
-	}
-
-	@Override
-	public final ObjectProperty<MoveAnimation> animationMoveProperty() {
-		if(animationMoveProperty == null) {
-			animationMoveProperty = new SimpleObjectProperty<MoveAnimation>(this, "animationProperty", null);
-		}
-		return animationMoveProperty;
-	}
-
-	private AbstractMoveAnimation moveAnimation;
-	@Override
-	public void setMoveAnimation(AbstractMoveAnimation moveAnimation) {
-		this.moveAnimation = moveAnimation;
-	}
-	
-	@Override
-	public AbstractMoveAnimation getMoveAnimation() {
-		return moveAnimation;
-	}
 }

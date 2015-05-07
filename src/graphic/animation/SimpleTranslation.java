@@ -4,6 +4,7 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
+import collisions.ICollidable;
 
 public class SimpleTranslation extends AbstractMoveAnimation {
 
@@ -29,8 +30,9 @@ public class SimpleTranslation extends AbstractMoveAnimation {
 	}
 	
 	@Override
-	public void play() {
+	public void playAnimation() {
 		changeCoordinates();
+		((ICollidable) animation.getNode()).sendNewRiskyNode();
 		animation.play();
 	}
 }

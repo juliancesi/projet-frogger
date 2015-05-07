@@ -52,7 +52,7 @@ public abstract class AbstractMoveAnimation extends Transition {
 		return null;
 	}
 	
-	public abstract void play();
+	public abstract void playAnimation();
 	
 	@Override
 	protected void interpolate(double frac) {

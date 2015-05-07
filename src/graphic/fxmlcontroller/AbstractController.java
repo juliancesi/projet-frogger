@@ -1,13 +1,15 @@
 package graphic.fxmlcontroller;
 
 import graphic.animation.MoveController;
-import graphic.bean.IAnimationMoveProperty;
+import graphic.bean.ICollisionsProperty;
 
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import collisions.CollisionsEngine;
+import collisions.ICollidable;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -39,11 +41,14 @@ public abstract class AbstractController implements Initializable {
 	}
 
 	protected void bindProperty(Node node) {
-		if(node instanceof IAnimationMoveProperty) {
+		if(node instanceof ICollisionsProperty) {
 			if(nodesList == null) {
 				nodesList = new HashMap<String, Node>();
 			}
 			nodesList.put(node.getId(), node);
+		}
+		if(node instanceof ICollidable) {
+			CollisionsEngine.getInstance().addNode(node);
 		}
 //		if(node instanceof RectangleTile) {
 //			RectangleTile tile = (RectangleTile) node;

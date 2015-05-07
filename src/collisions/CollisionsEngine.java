@@ -1,18 +1,16 @@
 package collisions;
 
-import graphic.animation.AbstractMoveAnimation;
 import graphic.animation.MoveAnimation;
 import graphic.bean.IAnimationMoveProperty;
-import graphic.bean.ICollisionsProperty;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-import util.Utils;
 import javafx.scene.Node;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
-public class CollisionsEngine {
+public class CollisionsEngine implements INodesMediator {
 
 	private Node playerNode;
 	private Map<String, Node> nodesList;
@@ -58,33 +56,35 @@ public class CollisionsEngine {
 		rPlayer -= tolerance * (rPlayer / 100);
 		double rNode = ((node.getBoundsInLocal().getWidth() + node.getBoundsInLocal().getHeight()) / 2) / 2;
 		rNode -= tolerance * (rNode / 100);
-		
+
 		// centre
 		double xPlayer = player.getBoundsInParent().getMinX() + rPlayer;
 		double yPlayer = player.getBoundsInParent().getMinY() + rPlayer;
 		double xNode = node.getBoundsInParent().getMinX() + rNode;
 		double yNode = node.getBoundsInParent().getMinY() + rNode;
-		
+
 		double authorizedLength = Math.pow(rPlayer + rNode, 2);
 
 		double X = Math.pow(xPlayer - xNode, 2);
 		double Y = Math.pow(yPlayer - yNode, 2);
-	
+
 		double realLength = X + Y;
-		
+
 		// Camion / Voiture
-		MoveAnimation animation = ((IAnimationMoveProperty) node).getAnimationMoveProperty();
-		if(animation == MoveAnimation.LEFT_TRANSLATION || animation == MoveAnimation.RIGHT_TRANSLATION) {
-			return intersect(player, node);
+		if(node instanceof IAnimationMoveProperty) {
+			MoveAnimation animation = ((IAnimationMoveProperty) node).getAnimationMoveProperty();
+			if(animation == MoveAnimation.LEFT_TRANSLATION || animation == MoveAnimation.RIGHT_TRANSLATION) {
+				return intersect(player, node);
+			}
 		}
-		
+
 		if(realLength < authorizedLength) {
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public Node checkNodeCollisions(Node player) {
 		for(String key : nodesList.keySet()) {
 
@@ -92,6 +92,10 @@ public class CollisionsEngine {
 				Node node = nodesList.get(key);
 
 				if(circleIntersect(player, node, 20)) {
+					//					if(node.getId().equals("voiture")) {
+//					System.out.println(node.getId());
+//					System.out.printf("node x: %1s - grenouille x: %2s", node.getBoundsInParent().getMinX(), player.getBoundsInParent().getMinX()).println();
+					//					}
 					return node;
 				}
 			}
@@ -109,7 +113,24 @@ public class CollisionsEngine {
 		double x = playerNode.getLayoutX() + playerNode.getTranslateX() + xy[0];
 		double y = playerNode.getLayoutY() + playerNode.getTranslateY() + xy[1];
 		rectangleFuture.relocate(x, y);
-		
+
 		return checkNodeCollisions(rectangleFuture);
+	}
+
+	//////////////////////////////////////////////////////////
+	
+	private Set<ICollidable> collidableNodes = new HashSet<ICollidable>();
+	@Override
+	public void addNode(Node node) {
+		collidableNodes.add((ICollidable) node);
+	}
+
+	@Override
+	public void sendNewRiskyNode(Node collidableNode) {
+		for(ICollidable node : collidableNodes) {
+			if(!((Node) node).getId().equals("frog")) {
+				node.receiveRiskNode(collidableNode);
+			}
+		}
 	}
 }

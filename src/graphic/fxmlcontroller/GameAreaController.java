@@ -3,7 +3,7 @@ package graphic.fxmlcontroller;
 import graphic.animation.AbstractMoveAnimation;
 import graphic.animation.MoveController.MoveKey;
 import graphic.animation.Sprite;
-import graphic.bean.ImageTile;
+import graphic.bean.MovableImageTile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,7 +19,7 @@ import javafx.util.Duration;
 public class GameAreaController extends AbstractController {
 	
 	@FXML
-	private ImageTile frog;
+	private MovableImageTile frog;
 	@FXML
 	private ImageView lifes;
 	

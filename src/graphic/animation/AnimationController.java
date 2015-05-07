@@ -5,16 +5,13 @@ import graphic.bean.IAnimationMoveProperty;
 import java.util.HashMap;
 import java.util.Map;
 
-import javafx.animation.Interpolatable;
-import javafx.animation.Interpolator;
-import javafx.animation.Timeline;
 import javafx.animation.Transition;
 import javafx.scene.Node;
 
 public class AnimationController {
 	
 	private static AnimationController instance = new AnimationController();
-	private Map<Node, Transition> animatedNodes = new HashMap<Node, Transition>();
+	private Map<Node, AbstractMoveAnimation> animatedNodes = new HashMap<Node, AbstractMoveAnimation>();
 	
 	public static AnimationController getInstance() {
 		return instance;
@@ -35,11 +32,11 @@ public class AnimationController {
 		}
 	}
 	
-	public Map<Node, Transition> getAnimatedNodes() {
+	public Map<Node, AbstractMoveAnimation> getAnimatedNodes() {
 		return animatedNodes;
 	}
 	
-	private Transition setAnimation(Node node) {
+	private AbstractMoveAnimation setAnimation(Node node) {
 		AbstractMoveAnimation animation = ((IAnimationMoveProperty) node).getMoveAnimation();
 		animation.setTile(node);
 		return animation;
@@ -47,7 +44,7 @@ public class AnimationController {
 	
 	public void playAnimation(Node node) {
 		checkOutOfBounds(node);
-		animatedNodes.get(node).play();
+		animatedNodes.get(node).playAnimation();
 	}
 
 	public void playAnimation(String nodeId) {

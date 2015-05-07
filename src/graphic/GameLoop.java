@@ -17,6 +17,7 @@ import javafx.util.Duration;
 import rules.RulesKeeper;
 import util.Utils;
 import collisions.CollisionsEngine;
+import collisions.ICollidable;
 
 public class GameLoop {
 
@@ -41,7 +42,7 @@ public class GameLoop {
 		
 		Map<String, Node> nodesList;
 		for(String key : (nodesList = controller.getAllNodes()).keySet()) {
-			if(nodesList.get(key) instanceof IAnimationMoveProperty) {
+			if(nodesList.get(key) instanceof ICollidable) {
 				IAnimationMoveProperty node = (IAnimationMoveProperty) nodesList.get(key);
 				if(node.getMoveAnimation() != null) {
 					animationController.addNode((Node) node);
@@ -106,7 +107,8 @@ public class GameLoop {
 
 				int res = Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collisionProperty);
 				if(res != 0) {
-					frogAnimation.play();
+					frogAnimation.playAnimation();
+					((ICollidable) frog).sendNewRiskyNode();
 				}
 			}
 
