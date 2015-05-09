@@ -538,7 +538,7 @@
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
 							</viewport>
 						</ImageTile>
-						<ImageTile fx:id="tile65" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="713.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
+						<ImageTile fx:id="tile641" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="713.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../resources/tiles-mini.png" />
 							</image>
@@ -610,7 +610,7 @@
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
 							</viewport>
 						</ImageTile>
-						<ImageTile fx:id="tile641" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="675.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+						<ImageTile fx:id="tile65" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="675.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../resources/tiles-mini.png" />
 							</image>

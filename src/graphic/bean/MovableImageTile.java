@@ -83,7 +83,12 @@ public class MovableImageTile extends ImageView implements ICollisionsProperty, 
 
 	@Override
 	public void receiveRiskNode(Node collidableNode) {
-		System.out.printf("[%2$s] J'ai reçu le node %1$s", collidableNode, this.getId()).println();
+//		System.out.printf("[%2$s] J'ai reçu le node [%1$s]", collidableNode.getId(), this.getId()).println();
+		
+		Node collisionsTo = collisionsEngine.checkCollisions(this, collidableNode);
+		if(collisionsTo != null) {
+			System.out.printf("collision: [%1s] avec [%2s]", this.getId(), collidableNode.getId()).println();
+		}
 	}
 
 }

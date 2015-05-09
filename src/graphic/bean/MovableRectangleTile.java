@@ -84,6 +84,11 @@ public class MovableRectangleTile extends Rectangle implements ICollisionsProper
 
 	@Override
 	public void receiveRiskNode(Node collidableNode) {
-		System.out.printf("[%2$s] J'ai reçu le node %1$s", collidableNode, this.getId()).println();
+//		System.out.printf("[%2$s] J'ai reçu le node [%1$s]", collidableNode.getId(), this.getId()).println();
+//		Node collisionsTo = collisionsEngine.checkCollisions(this, collidableNode);
+//		if(collisionsTo != null) {
+//			System.out.println("collision");
+//		}
+
 	}
 }

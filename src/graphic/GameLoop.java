@@ -63,7 +63,7 @@ public class GameLoop {
 			moveObjects();
 			
 			// checks collisions
-			Node collidedNode = collisionsEngine.checkNodeCollisions();
+			/*Node collidedNode = collisionsEngine.checkNodeCollisions();
 			if(collidedNode != null) {
 				if(collidedNode instanceof ICollisionsProperty) {
 					int collision = ((ICollisionsProperty) collidedNode).getCollisionsProperty();
@@ -71,7 +71,7 @@ public class GameLoop {
 						System.out.println("mort !");
 					}
 				}
-			}
+			}*/
 
 			// move the player
 			movePlayer();
