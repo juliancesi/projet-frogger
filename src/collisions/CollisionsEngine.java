@@ -1,18 +1,14 @@
 package collisions;
 
-import graphic.animation.MoveAnimation;
-import graphic.bean.IAnimationMoveProperty;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import util.Utils;
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
+import util.Utils;
 
 public class CollisionsEngine implements INodesMediator {
 
@@ -219,5 +215,31 @@ public class CollisionsEngine implements INodesMediator {
 		return null;
 	}
 	
+	private Map<Integer, Map<Integer, Set<Node>>> sortedNodesList = new HashMap<Integer, Map<Integer, Set<Node>>>();
+	public void addSortedNode(int minX, int maxX, int minY, int maxY, Node node) {
+		// loop on x
+		for(int x = minX; x <= maxX; x++) {
+			if(sortedNodesList.get(x) == null) {
+				sortedNodesList.put(x, new HashMap<Integer, Set<Node>>());
+			}
+			
+			// loop on y
+			for(int y  = minY; y <= maxY; y++) {
+				if(sortedNodesList.get(x).get(y) == null) {
+					sortedNodesList.get(x).put(y, new HashSet<Node>());
+				}
+				
+				sortedNodesList.get(x).get(y).add(node);
+			}
+		}
+	}
+	
+	public Map<Integer, Map<Integer, Set<Node>>> getSortedNodesList() {
+		return sortedNodesList;
+	}
+	
+	public Set<Node> getNodesList(int x, int y) {
+		return sortedNodesList.get(x).get(y);
+	}
 	
 }
