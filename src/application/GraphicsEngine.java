@@ -2,9 +2,12 @@ package application;
 	
 import static graphic.FxmlOverview.GAME;
 import static graphic.FxmlOverview.IHM;
+import static graphic.FxmlOverview.SCORE;
 import static graphic.FxmlOverview.getFxmlController;
 import static graphic.FxmlOverview.loadFxmlView;
 import graphic.GameLoop;
+import graphic.fxmlcontroller.AbstractController;
+import graphic.fxmlcontroller.MenuController;
 
 import java.io.IOException;
 
@@ -52,6 +55,13 @@ public class GraphicsEngine {
 		
 		gameLoop = new GameLoop(getFxmlController());
 		gameLoop.startGame();
+	}
+	
+	public void loadScore(int score) throws IOException {
+		setScene(loadFxmlView(SCORE));
+		 MenuController controller = ((MenuController) getFxmlController());
+		controller.setScore(String.valueOf(score));
+	
 	}
 	
 	public void launch() {

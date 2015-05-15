@@ -75,17 +75,17 @@ public class CollisionsEngineTest {
 	
 	@Test
 	public void checkCollisionsFutureOK_KO() {
-		assertEquals(colEng.checkCollisionsFuture(new Double[] {0.0, 0.0}), rec2Property);
+		assertEquals(colEng.checkCollisionsFuture(new Double[] {0.0, 0.0}, false), rec2Property);
 		
-		assertNull(colEng.checkCollisionsFuture(new Double[] {55.0, 0.0}));
+		assertNull(colEng.checkCollisionsFuture(new Double[] {55.0, 0.0}, false));
 	}
 
 	@Test
 	public void checkCollisionsFutureTranslateOK_KO() {
 		rec2Property.setTranslateY(55);
-		assertEquals(colEng.checkCollisionsFuture(new Double[] {0.0, 55.0}), rec2Property);
+		assertEquals(colEng.checkCollisionsFuture(new Double[] {0.0, 55.0}, false), rec2Property);
 		
-		assertNull(colEng.checkCollisionsFuture(new Double[] {55.0, 0.0}));
+		assertNull(colEng.checkCollisionsFuture(new Double[] {55.0, 0.0}, false));
 	}
 
 /*	@Test

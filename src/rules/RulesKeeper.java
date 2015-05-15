@@ -77,4 +77,24 @@ public class RulesKeeper {
 		updateLifes();
 	}
 	
+	public enum ScoreType {
+		LIGNE(10),
+		ROUND(50);
+		
+		private int points;
+		ScoreType(int points) {
+			this.points = points;
+		}
+		public int getPoints() {
+			return points;
+		}
+	}
+	private int score = 0;
+	public void updateScore(ScoreType scoreType) {
+		score += scoreType.getPoints();
+	}
+	
+	public int getScore() {
+		return score;
+	}
 }

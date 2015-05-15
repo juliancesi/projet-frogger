@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import application.GraphicsEngine;
 
@@ -19,7 +20,11 @@ public class MenuController extends AbstractController {
 	
 	@FXML
 	private ImageView frog;
-	
+	@FXML
+	private Text quitter;
+	@FXML
+	private Text score;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
@@ -41,6 +46,15 @@ public class MenuController extends AbstractController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@FXML
+	protected void quitter() {
+		System.exit(0);
+	}
+	
+	public void setScore(String score) {
+		this.score.setText(score);
 	}
 	
 }

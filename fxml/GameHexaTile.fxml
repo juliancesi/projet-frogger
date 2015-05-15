@@ -26,7 +26,7 @@
 								<Rectangle2D height="85.0" minX="250.0" minY="191.0" width="75.0" />
 							</viewport>
 						</ImageTile>
-						<ImageTile fx:id="tile0" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="75.0" pickOnBounds="true" preserveRatio="true">
+						<ImageTile fx:id="tile0" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="75.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../resources/tiles-mini.png" />
 							</image>
@@ -42,7 +42,7 @@
 								<Rectangle2D height="85.0" minX="250.0" minY="6.0" width="75.0" />
 							</viewport>
 						</ImageTile>
-						<ImageTile fx:id="tile2" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="225.0" pickOnBounds="true" preserveRatio="true">
+						<ImageTile fx:id="tile2" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="225.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../resources/tiles-mini.png" />
 							</image>
@@ -58,7 +58,7 @@
 								<Rectangle2D height="85.0" minX="167.0" minY="191.0" width="75.0" />
 							</viewport>
 						</ImageTile>
-						<ImageTile fx:id="tile4" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="375.0" pickOnBounds="true" preserveRatio="true">
+						<ImageTile fx:id="tile4" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="375.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../resources/tiles-mini.png" />
 							</image>
@@ -74,7 +74,7 @@
 								<Rectangle2D height="85.0" minX="250.0" minY="191.0" width="75.0" />
 							</viewport>
 						</ImageTile>
-						<ImageTile fx:id="tile6" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="525.0" pickOnBounds="true" preserveRatio="true">
+						<ImageTile fx:id="tile6" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="525.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../resources/tiles-mini.png" />
 							</image>
@@ -90,7 +90,7 @@
 								<Rectangle2D height="85.0" minX="250.0" minY="6.0" width="75.0" />
 							</viewport>
 						</ImageTile>
-						<ImageTile fx:id="tile8" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="675.0" pickOnBounds="true" preserveRatio="true">
+						<ImageTile fx:id="tile8" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="675.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@../resources/tiles-mini.png" />
 							</image>
@@ -810,6 +810,18 @@
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
 							</viewport>
 						</ImageTile>
+                  <MovableRectangleTile fx:id="arbre1" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutY="223.0" width="120.0" />
+                  <MovableRectangleTile fx:id="arbre11" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="315.0" layoutY="223.0" width="120.0" />
+                  <MovableRectangleTile fx:id="arbre111" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="659.0" layoutY="218.0" width="120.0" />
+                  <MovableRectangleTile fx:id="branche" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="113.0" layoutY="158.0" width="60.0" />
+                  <MovableRectangleTile fx:id="branche1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="184.0" layoutY="158.0" width="60.0" />
+                  <MovableRectangleTile fx:id="branche11" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="403.0" layoutY="158.0" width="60.0" />
+                  <MovableRectangleTile fx:id="branche111" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="473.0" layoutY="158.0" width="60.0" />
+                  <MovableRectangleTile fx:id="branche1111" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="659.0" layoutY="158.0" width="60.0" />
+                  <MovableRectangleTile fx:id="branche11111" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="730.0" layoutY="158.0" width="60.0" />
+                  <MovableRectangleTile fx:id="arbre12" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="75.0" layoutY="93.0" width="120.0" />
+                  <MovableRectangleTile fx:id="arbre121" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="330.0" layoutY="93.0" width="120.0" />
+                  <MovableRectangleTile fx:id="arbre1211" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="3" fill="#83531b" height="30.0" layoutX="592.0" layoutY="93.0" width="120.0" />
 						<MovableImageTile fx:id="frog" animationMoveProperty="TRANSLATE" collisionsProperty="3" fitHeight="85.0" fitWidth="75.0" layoutX="375" layoutY="520" preserveRatio="true">
 							<viewport>
 								<Rectangle2D height="85.0" width="75.0" />
@@ -823,6 +835,8 @@
                   <MovableRectangleTile fx:id="voitureVerte" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fill="#1dd369" height="35.0" layoutX="375.0" layoutY="415.0" width="75.0" />
                   <MovableRectangleTile fx:id="voitureRouge" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fill="RED" height="35.0" layoutX="263.0" layoutY="415.0" width="75.0" />
                   <MovableRectangleTile fx:id="voitureNoire" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" height="35.0" layoutX="38.0" layoutY="415.0" width="75.0" />
+                  <MovableRectangleTile fx:id="camionBleu" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#1930c6" height="40.0" layoutX="375.0" layoutY="478.0" width="115.0" />
+                  <MovableRectangleTile fx:id="camionRouge" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#f50f0f" height="40.0" layoutX="99.0" layoutY="477.0" width="115.0" />
                   <ProgressBar fx:id="timerBar" layoutX="478.0" layoutY="291.0" opacity="0.76" prefHeight="15.0" prefWidth="600.0" progress="1.0" rotate="90.0" style="-fx-border-color: black;" />
                   <ImageView fx:id="lifes" fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
@@ -832,6 +846,9 @@
                         <Image url="@../resources/mouche-sprite.png" />
                      </image>
                   </ImageView>
+                  <MovableRectangleTile fx:id="camionBleu1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#1930c6" height="40.0" layoutX="276.0" layoutY="348.0" width="115.0" />
+                  <MovableRectangleTile fx:id="camionRouge1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#f50f0f" height="40.0" layoutY="347.0" width="115.0" />
+                  <MovableRectangleTile fx:id="camion1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" height="40.0" layoutX="573.0" layoutY="347.0" width="115.0" />
 					</children>
 				</AnchorPane>
 			</children>

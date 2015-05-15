@@ -159,7 +159,7 @@ public class CollisionsEngine implements INodesMediator {
 			return false;
 		}
 		
-		// Camion / Voiture
+		// movable nodes
 		if(node instanceof ICollidable) {
 			return circleRectangleIntersect(circPlayer, rectNode);
 		}
@@ -167,10 +167,17 @@ public class CollisionsEngine implements INodesMediator {
 		return circlesIntersect(circPlayer, circNode);
 	}
 
-	public Node checkNodeCollisions(Node player) {
-		for(String key : staticNodesList.keySet()) {
+	public Node checkNodeCollisions(Node player, boolean movableNodes) {
+		Map<String, Node> lst = null;
+		if(movableNodes) {
+			lst = collidableNodesList;
+		}
+		else {
+			lst = staticNodesList;
+		}
+		for(String key : lst.keySet()) {
 			Node node;
-			if((node = checkCollisions(player, staticNodesList.get(key))) != null) {
+			if((node = checkCollisions(player, lst.get(key))) != null) {
 				return node;
 			}
 		}
@@ -178,17 +185,17 @@ public class CollisionsEngine implements INodesMediator {
 	}
 
 	public Node checkNodeCollisions() {
-		return checkNodeCollisions(playerNode);
+		return checkNodeCollisions(playerNode, false);
 	}
 
-	public Node checkCollisionsFuture(Double[] xy) {
+	public Node checkCollisionsFuture(Double[] xy, boolean movableNodes) {
 		Node rectangleFuture = Utils.nodeToShape(playerNode, Rectangle.class);
 		rectangleFuture.setId("frogFuture");
 		double x = playerNode.getLayoutX() + playerNode.getTranslateX() + xy[0];
 		double y = playerNode.getLayoutY() + playerNode.getTranslateY() + xy[1];
 		rectangleFuture.relocate(x, y);
 
-		return checkNodeCollisions(rectangleFuture);
+		return checkNodeCollisions(rectangleFuture, movableNodes);
 	}
 
 	//////////////////////////////////////////////////////////

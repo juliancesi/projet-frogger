@@ -2,6 +2,7 @@ package graphic;
 
 import graphic.animation.AbstractMoveAnimation;
 import graphic.animation.AnimationController;
+import graphic.animation.MoveAnimation;
 import graphic.animation.MoveController;
 import graphic.bean.IAnimationMoveProperty;
 import graphic.bean.ICollisionsProperty;
@@ -18,6 +19,7 @@ import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.util.Duration;
 import rules.RulesKeeper;
+import rules.RulesKeeper.ScoreType;
 import util.Utils;
 import collisions.CollisionsEngine;
 import collisions.ICollidable;
@@ -68,7 +70,7 @@ public class GameLoop {
 
 			// move the player
 			movePlayer();
-			
+
 			checkGameRules();
 		});
 
@@ -80,13 +82,29 @@ public class GameLoop {
 	}
 
 	private void checkGameRules() {
-		if(((ICollidable) frog).isCollided()) {
-			rulesKeeper.setIsAlive();
+		Node nodeCollided = null;
+		if(((ICollidable) frog).isCollided() && ((MovableImageTile) frog).getNodeCollided() != null) {
+			nodeCollided = ((MovableImageTile) frog).getNodeCollided();
+			nodeCollided = collisionsEngine.checkCollisions(frog, nodeCollided);
+			if(nodeCollided == null) {
+				((ICollidable) frog).setIsCollided();
+				((MovableImageTile) frog).setNodeCollided(null);
+			}
 		}
 
-		if(!rulesKeeper.isAlive()) {
-			roundOver();
+		if(nodeCollided != null) {
+			if(((ICollisionsProperty) nodeCollided).getCollisionsProperty() == 3) {
+				MoveAnimation moveAnim = ((IAnimationMoveProperty) nodeCollided).animationMoveProperty().get();
+				AbstractMoveAnimation anim = moveAnim.getAnimation();
+				anim.setTile(frog);
+				anim.setCycleCount(Timeline.INDEFINITE);
+				anim.playAnimation();
+			}
+			else {
+				roundFinished();
+			}
 		}
+
 	}
 
 	private void updateBar(long timer) {
@@ -105,18 +123,25 @@ public class GameLoop {
 			frogAnimation.setDirection(moveController.getDirection());
 
 			Double[] xy = frogAnimation.getCoordinates();
-			Integer collisionsType = checkCollisionsOnMove(xy);
+			Integer collisionsType = checkCollisionsOnMove(xy, false);
+			Integer collisionsMovableNodesType = checkCollisionsOnMove(xy, true);
+
+			System.out.printf("static:%1s, movable:%2s", collisionsType, collisionsMovableNodesType).println();
+
 			if(collisionsType != null) {
-				switch(collisionsType) {
-				case 1:
-					roundOver();
-					break;
-				case 0:
-					break;
-				default:
+				if(collisionsType != 4) {
 					frogAnimation.playAnimation();
 					((ICollidable) frog).sendNewRiskyNode();
-					break;
+				} 
+
+				if(collisionsType == 1 && collisionsMovableNodesType == null) {
+					frogAnimation.playAnimation();
+					roundFinished();
+				}
+
+				if(collisionsType == 6) {
+					rulesKeeper.updateScore(ScoreType.ROUND);
+					roundFinished();
 				}
 
 			}
@@ -126,12 +151,12 @@ public class GameLoop {
 		moveController.reset();
 	}
 
-	private Integer checkCollisionsOnMove(Double[] xy) {
+	private Integer checkCollisionsOnMove(Double[] xy, boolean movableNodes) {
 		Node collidedNode = null;
-		if((collidedNode  = collisionsEngine.checkCollisionsFuture(xy)) != null) {
+		if((collidedNode  = collisionsEngine.checkCollisionsFuture(xy, movableNodes)) != null) {
 			int collisionProperty = ((ICollisionsProperty) collidedNode).getCollisionsProperty();
-
-			return Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collisionProperty);
+//			return Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collisionProperty);
+			return collisionProperty;
 		}
 		return null;
 	}
@@ -153,13 +178,13 @@ public class GameLoop {
 		getGameLoop().stop();
 	}
 
-	public void roundOver() {
+	private GraphicsEngine gEngine = GraphicsEngine.getInstance();
+	public void roundFinished() {
 		stopGame();
 		if(!rulesKeeper.getGameIsOver()) {
-			GraphicsEngine gEngine = GraphicsEngine.getInstance();
 			((MovableImageTile) frog).setIsCollided();
 			rulesKeeper.newRound();
-			
+
 			try {
 				gEngine.loadGame();
 			} catch (IOException e) {
@@ -168,6 +193,11 @@ public class GameLoop {
 		}
 		else {
 			stopGame();
+			try {
+				gEngine.loadScore(rulesKeeper.getScore());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

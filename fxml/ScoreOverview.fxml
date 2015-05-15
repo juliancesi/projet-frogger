@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import graphic.bean.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #292929;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphic.fxmlcontroller.MenuController">
+   <center>
+      <VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-border-color: #adff2f;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0">
+               <children>
+                  <Text fx:id="titre" fill="GREENYELLOW" layoutX="100.0" layoutY="125.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="2.0" text="Projet Frogger" textAlignment="CENTER">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="frog" fitHeight="75.0" fitWidth="100.0" layoutX="427.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/tileFrog.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="85.0" width="75.0" />
+                     </viewport>
+                  </ImageView>
+                  <Text fx:id="quitter" fill="DEEPPINK" layoutX="32.0" layoutY="372.0" onMouseClicked="#quitter" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Quitter" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="score" fill="DEEPPINK" layoutX="32.0" layoutY="244.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Score: " textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

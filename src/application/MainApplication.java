@@ -10,7 +10,7 @@ public class MainApplication extends Application {
 		GraphicsEngine graphicsEngine = new GraphicsEngine(primaryStage);
 		graphicsEngine.launch();
 	}
-
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
