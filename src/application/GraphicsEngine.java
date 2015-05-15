@@ -25,10 +25,11 @@ public class GraphicsEngine {
 	
 	public GraphicsEngine(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
-		primaryStage.setTitle("Mon Application");
+		primaryStage.setTitle("Projet Frogger");
 //		primaryStage.setWidth(800);
 //		primaryStage.setHeight(800);
-
+		primaryStage.setResizable(false);
+		
 		if(instance == null) {
 			instance = this;
 		}

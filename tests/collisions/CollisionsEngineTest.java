@@ -88,7 +88,7 @@ public class CollisionsEngineTest {
 		assertNull(colEng.checkCollisionsFuture(new Double[] {55.0, 0.0}));
 	}
 
-	@Test
+/*	@Test
 	public void addSortedNodes() {
 		Node node1 = new Rectangle(0, 0, 10, 10); // minX:0 / maxX:10 + r:5 / minY:0 / maxY:10 + 5
 		node1.setId("node1");
@@ -172,6 +172,6 @@ public class CollisionsEngineTest {
 
 		assertEquals(expectedNode, realNode);
 		
-	}
+	}*/
 	
 }

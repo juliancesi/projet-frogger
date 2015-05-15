@@ -13,6 +13,9 @@ public class AnimationController {
 	private static AnimationController instance = new AnimationController();
 	private Map<Node, AbstractMoveAnimation> animatedNodes = new HashMap<Node, AbstractMoveAnimation>();
 	
+	private double stageWidth;
+	private double stageHeight;
+	
 	public static AnimationController getInstance() {
 		return instance;
 	}
@@ -67,12 +70,19 @@ public class AnimationController {
 	private void checkOutOfBounds(Node node) {
 		if((((IAnimationMoveProperty) node).getAnimationMoveProperty() == MoveAnimation.LEFT_TRANSLATION) && 				
 				(node.getBoundsInParent().getMaxX() < 0)) {
-			node.setTranslateX(500);
+			node.setLayoutX(node.getParent().getBoundsInLocal().getWidth());
+			node.setTranslateX(-node.getBoundsInLocal().getWidth());
 		}
 		if((((IAnimationMoveProperty) node).getAnimationMoveProperty() == MoveAnimation.RIGHT_TRANSLATION) && 				
-				(node.getBoundsInParent().getMinX() > 788)) {
-			node.setTranslateX(-788);
+				(node.getBoundsInParent().getMinX() > stageWidth)) {
+			node.setLayoutX(0);
+			node.setTranslateX(-node.getBoundsInLocal().getWidth());
 		}
 		
+	}
+
+	public void setBounds(double width, double height) {
+		stageWidth = width;
+		stageHeight = height;
 	}
 }

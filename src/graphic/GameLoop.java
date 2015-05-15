@@ -5,11 +5,14 @@ import graphic.animation.AnimationController;
 import graphic.animation.MoveController;
 import graphic.bean.IAnimationMoveProperty;
 import graphic.bean.ICollisionsProperty;
+import graphic.bean.MovableImageTile;
 import graphic.fxmlcontroller.AbstractController;
 import graphic.fxmlcontroller.GameAreaController;
 
+import java.io.IOException;
 import java.util.Map;
 
+import application.GraphicsEngine;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
@@ -28,8 +31,8 @@ public class GameLoop {
 	private AbstractMoveAnimation frogAnimation;
 	private CollisionsEngine collisionsEngine;
 	private AnimationController animationController = AnimationController.getInstance();
-	private RulesKeeper rulesKeeper = new RulesKeeper(60);
-	
+	private RulesKeeper rulesKeeper = RulesKeeper.getInstance();
+
 	public GameLoop(AbstractController controller) {
 		this.controller = controller;
 		this.frog = (Node) controller.getNode("frog");
@@ -39,7 +42,8 @@ public class GameLoop {
 		collisionsEngine = CollisionsEngine.getInstance((Node) frog, controller.getAllNodes());
 
 		buildGameLoop();
-		
+
+		animationController.setBounds(controller.getRootPane().getBoundsInLocal().getWidth(), controller.getRootPane().getBoundsInLocal().getHeight());
 		Map<String, Node> nodesList;
 		for(String key : (nodesList = controller.getAllNodes()).keySet()) {
 			if(nodesList.get(key) instanceof ICollidable) {
@@ -58,23 +62,14 @@ public class GameLoop {
 			// timer
 			rulesKeeper.checkTimer();
 			updateBar(rulesKeeper.getTimeToEnd());
-			
+
 			// obstacles
 			moveObjects();
-			
-			// checks collisions
-			/*Node collidedNode = collisionsEngine.checkNodeCollisions();
-			if(collidedNode != null) {
-				if(collidedNode instanceof ICollisionsProperty) {
-					int collision = ((ICollisionsProperty) collidedNode).getCollisionsProperty();
-					if((Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collision)) == 1) {
-						System.out.println("mort !");
-					}
-				}
-			}*/
 
 			// move the player
 			movePlayer();
+			
+			checkGameRules();
 		});
 
 		Timeline gameLoop = new Timeline();
@@ -82,6 +77,16 @@ public class GameLoop {
 		gameLoop.getKeyFrames().add(loopFrame);
 
 		setGameLoop(gameLoop);
+	}
+
+	private void checkGameRules() {
+		if(((ICollidable) frog).isCollided()) {
+			rulesKeeper.setIsAlive();
+		}
+
+		if(!rulesKeeper.isAlive()) {
+			roundOver();
+		}
 	}
 
 	private void updateBar(long timer) {
@@ -100,21 +105,35 @@ public class GameLoop {
 			frogAnimation.setDirection(moveController.getDirection());
 
 			Double[] xy = frogAnimation.getCoordinates();
-
-			Node collidedNode = null;
-			if((collidedNode  = collisionsEngine.checkCollisionsFuture(xy)) != null) {
-				int collisionProperty = ((ICollisionsProperty) collidedNode).getCollisionsProperty();
-
-				int res = Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collisionProperty);
-				if(res != 0) {
+			Integer collisionsType = checkCollisionsOnMove(xy);
+			if(collisionsType != null) {
+				switch(collisionsType) {
+				case 1:
+					roundOver();
+					break;
+				case 0:
+					break;
+				default:
 					frogAnimation.playAnimation();
 					((ICollidable) frog).sendNewRiskyNode();
+					break;
 				}
+
 			}
 
 		}
 
 		moveController.reset();
+	}
+
+	private Integer checkCollisionsOnMove(Double[] xy) {
+		Node collidedNode = null;
+		if((collidedNode  = collisionsEngine.checkCollisionsFuture(xy)) != null) {
+			int collisionProperty = ((ICollisionsProperty) collidedNode).getCollisionsProperty();
+
+			return Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collisionProperty);
+		}
+		return null;
 	}
 
 	private void setGameLoop(Timeline gameLoop) {
@@ -133,4 +152,23 @@ public class GameLoop {
 	public void stopGame() {
 		getGameLoop().stop();
 	}
+
+	public void roundOver() {
+		stopGame();
+		if(!rulesKeeper.getGameIsOver()) {
+			GraphicsEngine gEngine = GraphicsEngine.getInstance();
+			((MovableImageTile) frog).setIsCollided();
+			rulesKeeper.newRound();
+			
+			try {
+				gEngine.loadGame();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else {
+			stopGame();
+		}
+	}
+
 }

@@ -1,10 +1,25 @@
 package rules;
 
+import application.CacheConfig;
+
 public class RulesKeeper {
 
+	private CacheConfig cacheConfig = CacheConfig.getInstance();
+	
 	private long round;
-	public RulesKeeper(long round) {
-		this.round = round * 1000; // millis to seconds
+	private int lifes;
+	private boolean gameIsOver = false;
+	
+	private boolean isAlive = true;
+	
+	private static RulesKeeper instance = new RulesKeeper(); 
+	public static RulesKeeper getInstance() {
+		return instance;
+	}
+	
+	private RulesKeeper() {
+		this.round = cacheConfig.getRoundDuration() * 1000; // millis to seconds
+		this.lifes = cacheConfig.getLifesNumber(); 
 	}
 	
 	private long begin;
@@ -33,4 +48,33 @@ public class RulesKeeper {
 	public long getTimeToEnd() {
 		return (round - timer) / 1000;
 	}
+	
+	public void updateLifes() {
+		lifes--;
+		if(lifes <= 0) {
+			gameIsOver = true;
+		}
+	}
+	
+	public int getLifes() {
+		return lifes;
+	}
+	
+	public boolean getGameIsOver() {
+		return gameIsOver;
+	}
+	
+	public void setIsAlive() {
+		isAlive = !isAlive;
+	}
+	
+	public boolean isAlive() {
+		return isAlive;
+	}
+	
+	public void newRound() {
+		setIsAlive();
+		updateLifes();
+	}
+	
 }

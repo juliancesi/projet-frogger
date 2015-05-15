@@ -819,10 +819,10 @@
 							</image>
 						</MovableImageTile>
                   <MovableRectangleTile fx:id="camion" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" height="40.0" layoutX="672.0" layoutY="477.0" width="115.0" />
-                  <MovableRectangleTile fx:id="voiture" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" height="35.0" layoutX="526.0" layoutY="415.0" width="75.0" />
-                  <MovableRectangleTile fx:id="voiture1" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" height="35.0" layoutX="375.0" layoutY="415.0" width="75.0" />
-                  <MovableRectangleTile fx:id="voiture11" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" height="35.0" layoutX="263.0" layoutY="415.0" width="75.0" />
-                  <MovableRectangleTile fx:id="voiture111" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" height="35.0" layoutX="38.0" layoutY="415.0" width="75.0" />
+                  <MovableRectangleTile fx:id="voitureBleue" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fill="#302dff" height="35.0" layoutX="526.0" layoutY="415.0" width="75.0" />
+                  <MovableRectangleTile fx:id="voitureVerte" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fill="#1dd369" height="35.0" layoutX="375.0" layoutY="415.0" width="75.0" />
+                  <MovableRectangleTile fx:id="voitureRouge" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fill="RED" height="35.0" layoutX="263.0" layoutY="415.0" width="75.0" />
+                  <MovableRectangleTile fx:id="voitureNoire" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" height="35.0" layoutX="38.0" layoutY="415.0" width="75.0" />
                   <ProgressBar fx:id="timerBar" layoutX="478.0" layoutY="291.0" opacity="0.76" prefHeight="15.0" prefWidth="600.0" progress="1.0" rotate="90.0" style="-fx-border-color: black;" />
                   <ImageView fx:id="lifes" fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>

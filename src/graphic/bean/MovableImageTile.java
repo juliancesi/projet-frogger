@@ -1,7 +1,5 @@
 package graphic.bean;
 
-import collisions.CollisionsEngine;
-import collisions.ICollidable;
 import graphic.animation.AbstractMoveAnimation;
 import graphic.animation.MoveAnimation;
 import javafx.beans.property.IntegerProperty;
@@ -10,7 +8,14 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+import rules.RulesKeeper;
+import collisions.CollisionsEngine;
+import collisions.ICollidable;
 
+/**
+ * @author Fafnir
+ *
+ */
 public class MovableImageTile extends ImageView implements ICollisionsProperty, IAnimationMoveProperty, ICollidable {
 
 	public MovableImageTile() {
@@ -75,6 +80,17 @@ public class MovableImageTile extends ImageView implements ICollisionsProperty, 
 
 	
 	/////////////////////////////////
+	private boolean isCollided = false;
+	@Override
+	public boolean isCollided() {
+		return isCollided;
+	}
+	
+	@Override
+	public void setIsCollided() {
+		isCollided = !isCollided;
+	}
+	
 	private CollisionsEngine collisionsEngine = CollisionsEngine.getInstance();
 	@Override
 	public void sendNewRiskyNode() {
@@ -88,7 +104,9 @@ public class MovableImageTile extends ImageView implements ICollisionsProperty, 
 		Node collisionsTo = collisionsEngine.checkCollisions(this, collidableNode);
 		if(collisionsTo != null) {
 			System.out.printf("collision: [%1s] avec [%2s]", this.getId(), collidableNode.getId()).println();
+			setIsCollided();
 		}
 	}
 
+	
 }

@@ -91,4 +91,14 @@ public class MovableRectangleTile extends Rectangle implements ICollisionsProper
 //		}
 
 	}
+
+	@Override
+	public boolean isCollided() {
+		return false;
+	}
+
+	@Override
+	public void setIsCollided() {
+	}
+	
 }

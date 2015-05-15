@@ -202,7 +202,7 @@ public class CollisionsEngine implements INodesMediator {
 	@Override
 	public void sendNewRiskyNode(Node collidableNode) {
 		for(ICollidable node : collidableNodes) {
-			if(!((Node) node).getId().equals(collidableNode.getId())) {
+			if(!((Node) node).getId().equals(collidableNode.getId()) && !node.isCollided()) {
 				node.receiveRiskNode(collidableNode);
 			}
 		}
@@ -214,7 +214,8 @@ public class CollisionsEngine implements INodesMediator {
 		}
 		return null;
 	}
-	
+
+/*	
 	private Map<Integer, Map<Integer, Set<Node>>> sortedNodesList = new HashMap<Integer, Map<Integer, Set<Node>>>();
 	public void addSortedNode(int minX, int maxX, int minY, int maxY, Node node) {
 		// loop on x
@@ -240,6 +241,6 @@ public class CollisionsEngine implements INodesMediator {
 	
 	public Set<Node> getNodesList(int x, int y) {
 		return sortedNodesList.get(x).get(y);
-	}
+	}*/
 	
 }

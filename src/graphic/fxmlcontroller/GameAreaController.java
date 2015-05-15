@@ -21,6 +21,9 @@ public class GameAreaController extends AbstractController {
 	@FXML
 	private MovableImageTile frog;
 	@FXML
+	private MovableImageTile frogClone;
+	private Double[] beginPosition;
+	@FXML
 	private ImageView lifes;
 	
 	private AbstractMoveAnimation animation;
@@ -39,6 +42,9 @@ public class GameAreaController extends AbstractController {
 		super.initialize(location, resources);
 		animation = frog.getAnimationMoveProperty().getAnimation();
 		animation.setTile(frog);
+		
+		beginPosition = new Double[] {frog.getBoundsInParent().getMinX(), frog.getBoundsInParent().getMinY()};
+		
 		timer = animation.cycleDurationProperty().get().toMillis();
 		
 		int columns = 7;
@@ -55,6 +61,7 @@ public class GameAreaController extends AbstractController {
 		Sprite spriteFly = new Sprite(lifes, wFly, hFly, columnsFly, Duration.millis(100));
 		spriteFly.setCycleCount(Timeline.INDEFINITE);
 		spriteFly.play();
+		
 	}
 	
 	@FXML
@@ -83,6 +90,17 @@ public class GameAreaController extends AbstractController {
 	private ProgressBar timerBar;
 	public void updateTimerBar(float timer) {
 		timerBar.setProgress(timer / 60);
+	}
+	
+	public void resetFrogPosition() {
+//		System.out.printf("x:%1s, y:%2s", beginPosition[0], beginPosition[1]).println();
+//		System.out.printf("tx:%1s, ty:%2s", frog.getTranslateX(), frog.getTranslateY()).println();
+		
+		double nX = frog.getTranslateX();
+		double nY = frog.getTranslateY();
+		
+		frog.setLayoutX(beginPosition[0] - nX);
+		frog.setLayoutY(beginPosition[1] - nY);
 	}
 	
 }
