@@ -41,4 +41,5 @@ public class UtilsTest {
 		assertTrue("empty string", Utils.isNull(""));
 		assertTrue("null string", Utils.isNull((String) null));
 	}
+
 }

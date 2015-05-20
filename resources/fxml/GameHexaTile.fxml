@@ -20,7 +20,7 @@
 					<children>
 						<ImageTile fx:id="tile" collisionsProperty="4" fitHeight="85.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="250.0" minY="191.0" width="75.0" />
@@ -28,7 +28,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile0" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="75.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="167.0" minY="6.0" width="75.0" />
@@ -36,7 +36,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile1" collisionsProperty="4" fitHeight="85.0" fitWidth="75.0" layoutX="150.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="250.0" minY="6.0" width="75.0" />
@@ -44,7 +44,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile2" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="225.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="6.0" width="75.0" />
@@ -52,7 +52,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile3" collisionsProperty="4" fitHeight="85.0" fitWidth="75.0" layoutX="300.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="167.0" minY="191.0" width="75.0" />
@@ -60,7 +60,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile4" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="375.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="167.0" minY="6.0" width="75.0" />
@@ -68,7 +68,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile5" collisionsProperty="4" fitHeight="85.0" fitWidth="75.0" layoutX="450.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="250.0" minY="191.0" width="75.0" />
@@ -76,7 +76,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile6" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="525.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="6.0" width="75.0" />
@@ -84,7 +84,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile7" collisionsProperty="4" fitHeight="85.0" fitWidth="75.0" layoutX="600.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="250.0" minY="6.0" width="75.0" />
@@ -92,7 +92,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile8" collisionsProperty="6" fitHeight="85.0" fitWidth="75.0" layoutX="675.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="167.0" minY="6.0" width="75.0" />
@@ -100,7 +100,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile9" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="38.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -108,7 +108,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile10" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="42.0" minY="100.0" width="37.0" />
@@ -116,7 +116,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile11" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="113.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -124,7 +124,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile12" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="188.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -132,7 +132,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile13" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="263.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -140,7 +140,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile14" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="338.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -148,7 +148,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile15" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="413.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -156,7 +156,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile16" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="488.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -164,7 +164,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile17" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="563.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -172,7 +172,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile18" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="637.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -180,7 +180,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile19" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="712.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -188,7 +188,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile20" collisionsProperty="4" fitHeight="85.0" fitWidth="75.0" layoutX="750.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="167.0" minY="191.0" width="37.0" />
@@ -196,7 +196,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile21" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="450.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -204,7 +204,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile22" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="525.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -212,7 +212,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile23" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="749.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="37.0" />
@@ -220,7 +220,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile24" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="674.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -228,7 +228,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile25" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="375.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -236,7 +236,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile26" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="150.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -244,7 +244,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile27" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="300.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -252,7 +252,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile28" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="225.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -260,7 +260,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile29" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -268,7 +268,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile30" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="600.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -276,7 +276,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile31" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="75.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -284,7 +284,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile32" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="42.0" minY="100.0" width="38.0" />
@@ -292,7 +292,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile33" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="712.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -300,7 +300,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile34" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="488.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -308,7 +308,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile35" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="413.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -316,7 +316,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile36" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="563.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -324,7 +324,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile37" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="38.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -332,7 +332,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile38" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="637.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -340,7 +340,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile40" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="113.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -348,7 +348,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile41" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="188.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -356,7 +356,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile42" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="263.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -364,7 +364,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile43" collisionsProperty="1" fitHeight="85.0" fitWidth="75.0" layoutX="338.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="100.0" width="75.0" />
@@ -372,7 +372,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile44" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
@@ -380,7 +380,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile45" collisionsProperty="4" fitHeight="85.0" fitWidth="75.0" layoutX="75.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="415.0" minY="191.0" width="75.0" />
@@ -388,7 +388,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile46" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="150.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="415.0" minY="6.0" width="75.0" />
@@ -396,7 +396,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile47" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="225.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="415.0" minY="6.0" width="75.0" />
@@ -404,7 +404,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile48" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="300.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="191.0" width="75.0" />
@@ -412,7 +412,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile49" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="375.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
@@ -420,7 +420,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile50" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="450.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="415.0" minY="6.0" width="75.0" />
@@ -428,7 +428,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile51" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="525.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
@@ -436,7 +436,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile52" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="600.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="415.0" minY="100.0" width="75.0" />
@@ -444,7 +444,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile53" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="675.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="415.0" minY="6.0" width="75.0" />
@@ -452,7 +452,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile54" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="750.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="37.0" />
@@ -460,7 +460,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile55" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="43.0" minY="280.0" width="37.0" />
@@ -468,7 +468,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile56" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="38.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -476,7 +476,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile57" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="113.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -484,7 +484,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile58" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="188.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -492,7 +492,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile59" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="263.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -500,7 +500,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile60" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="338.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -508,7 +508,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile61" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="413.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -516,7 +516,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile62" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="488.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -524,7 +524,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile63" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="563.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -532,7 +532,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile64" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="638.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -540,7 +540,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile641" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="713.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -548,7 +548,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile69" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="225.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -556,7 +556,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile66" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -564,7 +564,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile74" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="600.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -572,7 +572,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile70" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="300.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -580,7 +580,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile73" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="525.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -588,7 +588,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile72" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="450.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -596,7 +596,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile71" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="375.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -604,7 +604,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile68" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="150.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -612,7 +612,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile65" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="675.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -620,7 +620,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile67" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="75.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -628,7 +628,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile76" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="750.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="37.0" />
@@ -636,7 +636,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile78" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="38.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -644,7 +644,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile86" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="638.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -652,7 +652,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile84" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="488.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -660,7 +660,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile87" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="713.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -668,7 +668,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile81" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="263.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -676,7 +676,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile79" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="113.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -684,7 +684,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile85" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="563.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -692,7 +692,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile82" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="338.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -700,7 +700,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile83" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="413.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -708,7 +708,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile80" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="188.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="5.0" minY="280.0" width="75.0" />
@@ -716,7 +716,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile77" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="42.0" minY="280.0" width="37.0" />
@@ -724,7 +724,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile97" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="675.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="85.0" minY="100.0" width="75.0" />
@@ -732,7 +732,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile92" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="300.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="415.0" minY="6.0" width="75.0" />
@@ -740,7 +740,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile88" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="85.0" minY="6.0" width="75.0" />
@@ -748,7 +748,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile98" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="750.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="167.0" minY="100.0" width="37.0" />
@@ -756,7 +756,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile90" collisionsProperty="4" fitHeight="85.0" fitWidth="75.0" layoutX="150.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="167.0" minY="191.0" width="75.0" />
@@ -764,7 +764,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile89" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="75.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
@@ -772,7 +772,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile93" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="375.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
@@ -780,7 +780,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile95" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="525.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
@@ -788,7 +788,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile96" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="600.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="415.0" minY="6.0" width="75.0" />
@@ -796,7 +796,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile94" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="450.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
@@ -804,7 +804,7 @@
 						</ImageTile>
 						<ImageTile fx:id="tile91" collisionsProperty="2" fitHeight="85.0" fitWidth="75.0" layoutX="225.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
 							<image>
-								<Image url="@../resources/tiles-mini.png" />
+								<Image url="@../images/tiles-mini.png" />
 							</image>
 							<viewport>
 								<Rectangle2D height="85.0" minX="333.0" minY="6.0" width="75.0" />
@@ -827,7 +827,7 @@
 								<Rectangle2D height="85.0" width="75.0" />
 							</viewport>
 							<image>
-								<Image url="@../resources/tileFrog.png" />
+								<Image url="@../images/tileFrog.png" />
 							</image>
 						</MovableImageTile>
                   <MovableRectangleTile fx:id="camion" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" height="40.0" layoutX="672.0" layoutY="477.0" width="115.0" />
@@ -843,7 +843,7 @@
                         <Rectangle2D height="167.0" width="163.0" />
                      </viewport>
                      <image>
-                        <Image url="@../resources/mouche-sprite.png" />
+                        <Image url="@../images/mouche-sprite.png" />
                      </image>
                   </ImageView>
                   <MovableRectangleTile fx:id="camionBleu1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#1930c6" height="40.0" layoutX="276.0" layoutY="348.0" width="115.0" />

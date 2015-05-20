@@ -1,9 +1,11 @@
 package fr.cesi.application;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Properties;
 
 import fr.cesi.util.Utils;
@@ -13,7 +15,7 @@ import fr.cesi.util.Utils;
  */
 public class CacheConfig {
 
-	private final String CONFIGFILE = "config.ini"; 
+	private final String CONFIGFILE = "conf/config.ini"; 
 	private Properties properties = new Properties();
 	private static CacheConfig instance = new CacheConfig();
 
@@ -22,7 +24,8 @@ public class CacheConfig {
 	}
 
 	private CacheConfig() {
-		try(BufferedReader bis = Files.newBufferedReader(Paths.get(CONFIGFILE))) {
+		ClassLoader classLoader = getClass().getClassLoader();
+		try(InputStream bis = classLoader.getResourceAsStream(CONFIGFILE)) {
 			properties.load(bis);
 		} catch(IOException ioE) {
 			ioE.printStackTrace();

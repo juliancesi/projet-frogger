@@ -1,5 +1,7 @@
 package fr.cesi.util;
 
+import java.net.URL;
+
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
@@ -82,6 +84,11 @@ public class Utils {
 	
 	public static boolean isNull(Integer i) {
 		return i == null || i == 0;
+	}
+	
+	public static URL loadResource(String path) {
+		ClassLoader classLoader = Utils.class.getClassLoader();
+		return classLoader.getResource(path);
 	}
 
 }

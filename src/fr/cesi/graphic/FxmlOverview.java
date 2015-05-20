@@ -1,51 +1,94 @@
 package fr.cesi.graphic;
 
-import fr.cesi.graphic.fxmlcontroller.AbstractController;
-
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
+import fr.cesi.graphic.fxmlcontroller.AbstractController;
+import fr.cesi.util.Utils;
 
-public enum FxmlOverview {
-	IHM("./fxml/MenuOverview.fxml"),
-	GAME("/fxml/GameHexaTile.fxml"),
-	SCORE("/fxml/ScoreOverview.fxml"),
-	;
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FxmlOverview.
+ */
+public class FxmlOverview {
 	
-	private String fxmlFile;
+	/**
+	 * The Enum FxmlView.
+	 */
+	public enum FxmlView {
+		
+		/** The ihm fxml. */
+		IHM("MenuOverview.fxml"),
+		
+		/** The game fxml. */
+		GAME("GameHexaTile.fxml"),
+		
+		/** The score fxml. */
+		SCORE("ScoreOverview.fxml"),
+		;
+
+		/** The fxml file. */
+		private String fxmlFile;
+		
+		/**
+		 * Instantiates a new fxml view.
+		 *
+		 * @param fxmlFile the fxml file
+		 */
+		FxmlView(String fxmlFile) {
+			this.fxmlFile = fxmlFile;
+		}
+
+		/**
+		 * Gets the view.
+		 *
+		 * @return the view
+		 */
+		public String getview() {
+			return fxmlFile;
+		}
+
+	}
+	
+	/** The fxmlloader. */
 	private static FXMLLoader fxmlloader;
+	
+	/** The last layout loaded. */
 	private static Pane lastLayoutLoaded;
 	
-	FxmlOverview(String fxmlFile) {
-		this.fxmlFile = fxmlFile;
-	}
-	
-	public String getOverview() {
-		return fxmlFile;
-	}
-	
-	public static Pane loadFxmlView(FxmlOverview view) throws IOException {
+	/**
+	 * Load a fxml view.
+	 *
+	 * @param view the view
+	 * @return the pane
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	public static Pane loadFxmlView(FxmlView view) throws IOException {
 		lastLayoutLoaded = null;
 
-		URL fxmlUrl = Paths.get(new File("").getAbsolutePath() + view.getOverview()).toUri().toURL();
-		InputStream fxmlStream = Files.newInputStream(Paths.get(new File("").getAbsolutePath() + view.getOverview()));
+		URL fxmlUrl = Utils.loadResource("resources/fxml/" + view.getview());
 		
 		try {
-			fxmlloader = new FXMLLoader();
+			fxmlloader = new FXMLLoader(fxmlUrl);
 			fxmlloader.setLocation(fxmlUrl);
-			lastLayoutLoaded = fxmlloader.load(fxmlStream);
+			lastLayoutLoaded = fxmlloader.load();
 		} catch(IOException ioE) {
 			System.err.printf("cannot load the fxml view", ioE);
 		}
 		return lastLayoutLoaded;
 	}
 
+	/**
+	 * Gets the fxml controller of the actual view.
+	 *
+	 * @return the fxml controller
+	 */
 	public static AbstractController getFxmlController() {
 		return fxmlloader.getController();
 	}

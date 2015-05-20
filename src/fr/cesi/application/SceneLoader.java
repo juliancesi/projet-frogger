@@ -1,8 +1,6 @@
 package fr.cesi.application;
 	
-import static fr.cesi.graphic.FxmlOverview.GAME;
-import static fr.cesi.graphic.FxmlOverview.IHM;
-import static fr.cesi.graphic.FxmlOverview.SCORE;
+import static fr.cesi.graphic.FxmlOverview.FxmlView.*;
 import static fr.cesi.graphic.FxmlOverview.getFxmlController;
 import static fr.cesi.graphic.FxmlOverview.loadFxmlView;
 import fr.cesi.graphic.GameLoop;
