@@ -830,13 +830,22 @@
 								<Image url="@../images/tileFrog.png" />
 							</image>
 						</MovableImageTile>
-                  <MovableRectangleTile fx:id="camion" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" height="40.0" layoutX="672.0" layoutY="477.0" width="115.0" />
-                  <MovableRectangleTile fx:id="voitureBleue" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fill="#302dff" height="35.0" layoutX="526.0" layoutY="415.0" width="75.0" />
-                  <MovableRectangleTile fx:id="voitureVerte" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fill="#1dd369" height="35.0" layoutX="375.0" layoutY="415.0" width="75.0" />
-                  <MovableRectangleTile fx:id="voitureRouge" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fill="RED" height="35.0" layoutX="263.0" layoutY="415.0" width="75.0" />
-                  <MovableRectangleTile fx:id="voitureNoire" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" height="35.0" layoutX="38.0" layoutY="415.0" width="75.0" />
-                  <MovableRectangleTile fx:id="camionBleu" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#1930c6" height="40.0" layoutX="375.0" layoutY="478.0" width="115.0" />
-                  <MovableRectangleTile fx:id="camionRouge" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#f50f0f" height="40.0" layoutX="99.0" layoutY="477.0" width="115.0" />
+                  <MovableImageTile fx:id="vehicleLeft6" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" layoutX="645.0" layoutY="478.0">
+                     <image>
+                        <Image url="@../images/truck.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="115.0" />
+                     </viewport>
+                  </MovableImageTile>
+                  <MovableImageTile fx:id="vehicleLeft4" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" layoutX="93.0" layoutY="478.0">
+                     <image>
+                        <Image url="@../images/Mini_van.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="115.0" />
+                     </viewport>
+                  </MovableImageTile>
                   <ProgressBar fx:id="timerBar" layoutX="478.0" layoutY="291.0" opacity="0.76" prefHeight="15.0" prefWidth="600.0" progress="1.0" rotate="90.0" style="-fx-border-color: black;" />
                   <ImageView fx:id="lifes" fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
@@ -846,9 +855,70 @@
                         <Image url="@../images/mouche-sprite.png" />
                      </image>
                   </ImageView>
-                  <MovableRectangleTile fx:id="camionBleu1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#1930c6" height="40.0" layoutX="276.0" layoutY="348.0" width="115.0" />
-                  <MovableRectangleTile fx:id="camionRouge1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fill="#f50f0f" height="40.0" layoutY="347.0" width="115.0" />
-                  <MovableRectangleTile fx:id="camion1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" height="40.0" layoutX="573.0" layoutY="347.0" width="115.0" />
+                  <MovableImageTile fx:id="vehicleLeft3" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" layoutX="573.0" layoutY="347.0">
+                     <image>
+                        <Image url="@../images/Mini_van.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="115.0" />
+                     </viewport>
+                  </MovableImageTile>
+                  <MovableImageTile fx:id="vehicleLeft2" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" layoutX="276.0" layoutY="348.0">
+                     <image>
+                        <Image url="@../images/truck.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="115.0" />
+                     </viewport>
+                  </MovableImageTile>
+                  <MovableImageTile fx:id="vehicleLeft1" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" fitHeight="40.0" fitWidth="78.0" layoutY="347.0" rotate="180.0">
+                     <image>
+                        <Image url="@../images/Mini_truck.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="78.0" />
+                     </viewport>
+                  </MovableImageTile>
+                  <MovableImageTile fx:id="vehicleRight1" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fitHeight="40.0" fitWidth="95.0" layoutX="23.0" layoutY="413.0">
+                     <image>
+                        <Image url="@../images/Car.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="95.0" />
+                     </viewport>
+                  </MovableImageTile>
+                  <MovableImageTile fx:id="vehicleRight" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fitHeight="40.0" fitWidth="78.0" layoutX="261.0" layoutY="413.0">
+                     <image>
+                        <Image url="@../images/taxi.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="78.0" />
+                     </viewport>
+                  </MovableImageTile>
+                  <MovableImageTile fx:id="vehicleRight" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fitHeight="40.0" fitWidth="78.0" layoutX="364.0" layoutY="413.0" rotate="-180.0">
+                     <image>
+                        <Image url="@../images/Ambulance.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="81.0" />
+                     </viewport>
+                  </MovableImageTile>
+                  <MovableImageTile fx:id="vehicleRight" animationMoveProperty="RIGHT_TRANSLATION" collisionsProperty="1" fitHeight="40.0" fitWidth="78.0" layoutX="524.0" layoutY="413.0">
+                     <image>
+                        <Image url="@../images/Mini_truck.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="78.0" />
+                     </viewport>
+                  </MovableImageTile>
+                  <MovableImageTile fx:id="vehicleLeft5" animationMoveProperty="LEFT_TRANSLATION" collisionsProperty="1" layoutX="337.0" layoutY="478.0" rotate="180.0">
+                     <image>
+                        <Image url="@../images/Car.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="40.0" width="95.0" />
+                     </viewport>
+                  </MovableImageTile>
 					</children>
 				</AnchorPane>
 			</children>
