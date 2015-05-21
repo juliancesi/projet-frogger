@@ -29,7 +29,6 @@ public enum MoveAnimation {
 		this.direction = direction;
 	}
 
-
 	public AbstractMoveAnimation getAnimation() {
 		Constructor<? extends AbstractMoveAnimation> constructor = null;
 		AbstractMoveAnimation moveAnimation = null;

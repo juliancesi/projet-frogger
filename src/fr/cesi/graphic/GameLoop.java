@@ -1,20 +1,5 @@
 package fr.cesi.graphic;
 
-import fr.cesi.application.SceneLoader;
-import fr.cesi.collisions.CollisionsEngine;
-import fr.cesi.collisions.ICollidable;
-import fr.cesi.graphic.animation.AbstractMoveAnimation;
-import fr.cesi.graphic.animation.AnimationController;
-import fr.cesi.graphic.animation.MoveAnimation;
-import fr.cesi.graphic.animation.MoveController;
-import fr.cesi.graphic.bean.IAnimationMoveProperty;
-import fr.cesi.graphic.bean.ICollisionsProperty;
-import fr.cesi.graphic.bean.MovableImageTile;
-import fr.cesi.graphic.fxmlcontroller.AbstractController;
-import fr.cesi.graphic.fxmlcontroller.GameAreaController;
-import fr.cesi.rules.RulesKeeper;
-import fr.cesi.rules.RulesKeeper.ScoreType;
-
 import java.io.IOException;
 import java.util.Map;
 
@@ -22,6 +7,22 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.util.Duration;
+import fr.cesi.application.SceneLoader;
+import fr.cesi.collisions.CollisionsEngine;
+import fr.cesi.collisions.ICollidable;
+import fr.cesi.graphic.animation.AbstractMoveAnimation;
+import fr.cesi.graphic.animation.AnimationController;
+import fr.cesi.graphic.animation.MoveAnimation;
+import fr.cesi.graphic.animation.MoveController;
+import fr.cesi.graphic.bean.HighScore;
+import fr.cesi.graphic.bean.IAnimationMoveProperty;
+import fr.cesi.graphic.bean.ICollisionsProperty;
+import fr.cesi.graphic.bean.MovableImageTile;
+import fr.cesi.graphic.fxmlcontroller.AbstractController;
+import fr.cesi.graphic.fxmlcontroller.GameAreaController;
+import fr.cesi.rules.RulesKeeper;
+import fr.cesi.rules.RulesKeeper.ScoreType;
+import fr.cesi.util.Utils;
 
 public class GameLoop {
 
@@ -31,7 +32,7 @@ public class GameLoop {
 	private Node frog;
 	private AbstractMoveAnimation frogAnimation;
 	private CollisionsEngine collisionsEngine;
-	private AnimationController animationController = AnimationController.getInstance();
+	private AnimationController animationController;
 	private RulesKeeper rulesKeeper = RulesKeeper.getInstance();
 
 	public GameLoop(AbstractController controller) {
@@ -40,9 +41,11 @@ public class GameLoop {
 		frogAnimation = ((IAnimationMoveProperty) frog).getAnimationMoveProperty().getAnimation();
 		frogAnimation.setTile((Node) frog); 
 
-		collisionsEngine = CollisionsEngine.getInstance((Node) frog, controller.getAllNodes());
+		collisionsEngine = new CollisionsEngine((Node) frog, controller.getAllNodes());
 
 		buildGameLoop();
+		
+		animationController = new AnimationController(rulesKeeper);
 
 		animationController.setBounds(controller.getRootPane().getBoundsInLocal().getWidth(), controller.getRootPane().getBoundsInLocal().getHeight());
 		Map<String, Node> nodesList;
@@ -217,7 +220,14 @@ public class GameLoop {
 		else {
 			stopGame();
 			try {
-				gEngine.loadScore(rulesKeeper.getScore());
+				HighScore highScore = Utils.deserialize(HighScore.class, "highscore");
+				
+				if(highScore == null || (highScore != null && highScore.getScore() < rulesKeeper.getScore())) {
+					gEngine.loadScore(new HighScore("", rulesKeeper.getScore()), true);
+				}
+				else {
+					gEngine.loadScore(highScore, false);
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

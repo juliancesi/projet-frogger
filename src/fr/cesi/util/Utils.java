@@ -1,6 +1,15 @@
 package fr.cesi.util;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
@@ -90,5 +99,51 @@ public class Utils {
 		ClassLoader classLoader = Utils.class.getClassLoader();
 		return classLoader.getResource(path);
 	}
+	
+	public static InputStream readFile(String path) {
+		Path url = Paths.get(path);
+		try(InputStream reader = Files.newInputStream(url)) {
+			return reader;
+		} catch(IOException ioE) {
+			System.err.printf("cannot read the specified file : \"%1$s\"", url).println();
+		}
+		return null;
+	}
 
+	public static void serialize(Object o, String name) {
+		ObjectOutputStream outputStream = null;
+		try(FileOutputStream file = new FileOutputStream(name)) {
+			outputStream = new ObjectOutputStream(file);
+			outputStream.writeObject(o);
+			outputStream.flush();
+		} catch(IOException ioEx) {
+			ioEx.printStackTrace();
+		}
+	}
+	
+	public static <T> T deserialize(Class<T> bean, String path) {
+		T newObject = null;
+		
+		ObjectInputStream inputStream = null;
+		try(FileInputStream file = new FileInputStream(path)) {
+			inputStream = new ObjectInputStream(file);
+			newObject = (T) inputStream.readObject();
+		} catch(IOException ioEx) {
+			ioEx.printStackTrace();
+		} catch (ClassNotFoundException classNotFoundEx) {
+			classNotFoundEx.printStackTrace();
+		} finally {
+			try {
+				if(inputStream != null) {
+					inputStream.close();
+				}
+			} catch (IOException ioCloseEx) {
+				ioCloseEx.printStackTrace();
+			}
+
+		}
+		
+		return newObject;
+	}
+	
 }

@@ -1,25 +1,23 @@
 package fr.cesi.graphic.animation;
 
-import fr.cesi.graphic.bean.IAnimationMoveProperty;
-
 import java.util.HashMap;
 import java.util.Map;
 
 import javafx.scene.Node;
+import fr.cesi.graphic.bean.IAnimationMoveProperty;
+import fr.cesi.rules.RulesKeeper;
 
 public class AnimationController {
 	
-	private static AnimationController instance = new AnimationController();
 	private Map<Node, AbstractMoveAnimation> animatedNodes = new HashMap<Node, AbstractMoveAnimation>();
 	
 	private double stageWidth;
 	private double stageHeight;
 	
-	public static AnimationController getInstance() {
-		return instance;
-	}
+	private RulesKeeper rulesKeeper;
 	
-	private AnimationController() {
+	public AnimationController(RulesKeeper rulesKeeper) {
+		this.rulesKeeper = rulesKeeper;
 	}
 
 	public void addNode(Node node) {
@@ -61,6 +59,7 @@ public class AnimationController {
 	}
 	
 	public void playAnimation() {
+		System.out.println(animatedNodes.size());
 		for(Node node : animatedNodes.keySet()) {
 			playAnimation(node);
 		}

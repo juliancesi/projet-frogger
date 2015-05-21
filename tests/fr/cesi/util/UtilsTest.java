@@ -3,9 +3,9 @@ package fr.cesi.util;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import java.io.File;
 
-import fr.cesi.util.Utils;
+import org.junit.Test;
 
 public class UtilsTest {
 
@@ -41,5 +41,18 @@ public class UtilsTest {
 		assertTrue("empty string", Utils.isNull(""));
 		assertTrue("null string", Utils.isNull((String) null));
 	}
-
+	
+	@Test
+	public void serialize() {
+		String test = "test";
+		Utils.serialize(test, "serialize.test");
+		File file = new File("serialize.test");
+		assertTrue(file.exists());
+	}
+	
+	@Test
+	public void deserialize() {
+		String test = Utils.deserialize(String.class, "serialize.test");
+		assertEquals(test.toString(), "test");
+	}
 }

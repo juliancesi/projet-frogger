@@ -25,12 +25,20 @@
                   </Text>
                   <VBox layoutX="40.0" layoutY="138.0" prefHeight="300.0" prefWidth="250.0" AnchorPane.leftAnchor="0.0">
                      <children>
-                        <Text fx:id="playGame" fill="DEEPPINK" onMouseClicked="#playGame" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAY THE GAME" textAlignment="CENTER">
+                        <Text fx:id="playGame" fill="WHITE" onMouseClicked="#playGame" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Lancer une partie" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text fx:id="displayScores" fill="WHITE" onMouseClicked="#displayScores" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Afficher les scores" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
                            </VBox.margin>
                         </Text>
                      </children>

@@ -98,7 +98,17 @@ public class MovableImageTile extends ImageView implements ICollisionsProperty, 
 		return nodeCollided;
 	}
 	
-	private CollisionsEngine collisionsEngine = CollisionsEngine.getInstance();
+	private CollisionsEngine collisionsEngine;
+	@Override
+	public void setCollisionsEngine(CollisionsEngine collisionsEngine) {
+		this.collisionsEngine = collisionsEngine;
+	}
+
+	@Override
+	public CollisionsEngine getCollisionsEngine() {
+		return collisionsEngine;
+	}
+	
 	@Override
 	public void sendNewRiskyNode() {
 		collisionsEngine.sendNewRiskyNode(this);

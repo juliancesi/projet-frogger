@@ -1,11 +1,7 @@
 package fr.cesi.application;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.Properties;
 
 import fr.cesi.util.Utils;
@@ -43,12 +39,21 @@ public class CacheConfig {
 	}
 
 	/**
+	 * Gets the difficulty.
+	 *
+	 * @return the difficulty
+	 */
+	public Integer getDifficulty() {
+		return Utils.tryParseToInt(getProperty("difficulty"));
+	}
+
+	/**
 	 * Get the duration of a round.
 	 *
 	 * @return  the property
 	 */
-	public Integer getRoundDuration() {
-		return Utils.tryParseToInt(getProperty("roundDuration"));
+	public Integer getRoundDuration(int id) {
+		return Utils.tryParseToInt(getProperty("roundDuration" + id));
 	}
 
 	/**
@@ -58,6 +63,16 @@ public class CacheConfig {
 	 */
 	public Integer getLifesNumber() {
 		return Utils.tryParseToInt(getProperty("lifes"));
+	}
+	
+	/**
+	 * Gets the speed.
+	 *
+	 * @param id the difficulty
+	 * @return the speed
+	 */
+	public Double getSpeed(int id) {
+		return Utils.tryParseToDouble(getProperty("speed" + id));
 	}
 
 }

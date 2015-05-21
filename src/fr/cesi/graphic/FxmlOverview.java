@@ -1,11 +1,7 @@
 package fr.cesi.graphic;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;

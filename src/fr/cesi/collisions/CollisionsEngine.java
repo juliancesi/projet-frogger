@@ -23,43 +23,10 @@ public class CollisionsEngine implements INodesMediator {
 	
 	/** The collidable nodes list. */
 	private Map<String, Node> collidableNodesList = new HashMap<String, Node>();
+
+	public CollisionsEngine() {
+	}
 	
-	/** The r player. */
-	private double rPlayer;
-
-	/** The instance. */
-	public static CollisionsEngine instance;
-	
-	/**
-	 * Gets the single instance of CollisionsEngine.
-	 *
-	 * @return single instance of CollisionsEngine
-	 */
-	public static CollisionsEngine getInstance() {
-		if(instance == null) {
-			instance = new CollisionsEngine();
-		}
-		return instance;
-	}
-
-	/**
-	 * Gets the single instance of CollisionsEngine.
-	 *
-	 * @param player the player
-	 * @param nodesList the nodes list
-	 * @return single instance of CollisionsEngine
-	 */
-	public static CollisionsEngine getInstance(Node player, Map<String, Node> nodesList) {
-		instance = new CollisionsEngine(player, nodesList);
-		return getInstance();
-	}
-
-	/**
-	 * Instantiates a new collisions engine.
-	 */
-	private CollisionsEngine() {
-	}
-
 	/**
 	 * Instantiates a new collisions engine.
 	 *
@@ -370,33 +337,5 @@ public class CollisionsEngine implements INodesMediator {
 		}
 		return null;
 	}
-
-/*	
-	private Map<Integer, Map<Integer, Set<Node>>> sortedNodesList = new HashMap<Integer, Map<Integer, Set<Node>>>();
-	public void addSortedNode(int minX, int maxX, int minY, int maxY, Node node) {
-		// loop on x
-		for(int x = minX; x <= maxX; x++) {
-			if(sortedNodesList.get(x) == null) {
-				sortedNodesList.put(x, new HashMap<Integer, Set<Node>>());
-			}
-			
-			// loop on y
-			for(int y  = minY; y <= maxY; y++) {
-				if(sortedNodesList.get(x).get(y) == null) {
-					sortedNodesList.get(x).put(y, new HashSet<Node>());
-				}
-				
-				sortedNodesList.get(x).get(y).add(node);
-			}
-		}
-	}
-	
-	public Map<Integer, Map<Integer, Set<Node>>> getSortedNodesList() {
-		return sortedNodesList;
-	}
-	
-	public Set<Node> getNodesList(int x, int y) {
-		return sortedNodesList.get(x).get(y);
-	}*/
 	
 }

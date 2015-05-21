@@ -7,20 +7,23 @@ public class RulesKeeper {
 
 	private CacheConfig cacheConfig = CacheConfig.getInstance();
 	
+	private Difficulty mod;
 	private long roundDuration;
 	private int lifes;
+	private Double speed;
 	private boolean gameIsOver = false;
-	
 	private boolean isAlive = true;
 	
-	private static RulesKeeper instance = new RulesKeeper(); 
+	public static RulesKeeper instance = new RulesKeeper();
 	public static RulesKeeper getInstance() {
 		return instance;
 	}
 	
 	private RulesKeeper() {
-		this.roundDuration = cacheConfig.getRoundDuration() * 1000; // millis to seconds
+		this.mod = Difficulty.getMod(cacheConfig.getDifficulty());
+		this.roundDuration = cacheConfig.getRoundDuration(mod.getId()) * 1000; // millis to seconds
 		this.lifes = cacheConfig.getLifesNumber(); 
+		this.speed = cacheConfig.getSpeed(mod.getId());
 	}
 	
 	private long begin;
@@ -112,4 +115,47 @@ public class RulesKeeper {
 	public int getScore() {
 		return score;
 	}
+
+	public enum Difficulty {
+		EASY(0),
+		MEDIUM(1),
+		HARD(2);
+		
+		private int id;
+		Difficulty(int difficulty) {
+			this.id = difficulty;
+		}
+		public int getId() {
+			return id;
+		}
+		public static Difficulty getMod(int id) {
+			for(Difficulty i : Difficulty.values()) {
+				if(i.getId() == id) {
+					return i;
+				}
+			}
+			return null;
+		}
+	}
+	
+	public Difficulty getMod() {
+		return mod;
+	}
+
+	public void setMod(Difficulty mod) {
+		this.mod = mod;
+	}
+	
+	public void changeMod(Difficulty mod) {
+		setMod(mod);
+	}
+
+	public Double getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(Double speed) {
+		this.speed = speed;
+	}
+
 }

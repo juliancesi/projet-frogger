@@ -19,6 +19,7 @@ public abstract class AbstractController implements Initializable {
 	protected MoveController moveController = MoveController.getInstance();
 	protected Map<String, Node> collisionsNodesList;
 	protected Map<String, Node> otherNodesList;
+	protected CollisionsEngine collisionsEngine = new CollisionsEngine();
 	
 	@FXML
 	Pane root;
@@ -42,7 +43,8 @@ public abstract class AbstractController implements Initializable {
 
 	protected void bindProperty(Node node) {
 		if(node instanceof ICollidable) {
-			CollisionsEngine.getInstance().addNode(node);
+			((ICollidable) node).setCollisionsEngine(collisionsEngine);
+			collisionsEngine.addNode(node);
 		}		
 		
 		if(node instanceof ICollisionsProperty) {
