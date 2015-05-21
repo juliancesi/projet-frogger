@@ -1,7 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Custom Fxml Components" basedir="." default="">
-	<property name="components.dir" value="graphic"/>
-
+<project name="Projet Frogger" basedir="." default="">
+	<property file="build.properties"/>
+	
 	<target name="1. Clean">
+		<delete dir="${dist.dir}" includeemptydirs="true" />
+	</target>
+	
+	<target name="2. Init" depends="1. Clean">
+		<mkdir dir="${build.dir}"/>
+		<antcall target="Update resources"/>
+		<mkdir dir="${dist.dir}"/>
+	</target>
+
+	<target name="3. Compile" depends="2. Init">
+		<antcall target="Update resources"/>
+		<javac  srcdir="${src.dir}"
+				destdir="${build.dir}"
+				debug="${debug.mode}"
+				includeantruntime="false"
+		/>
+	</target>
+
+	<target name="4. Package" depends="3. Compile">
+		<condition property="sources.yes">
+			<equals arg1="${sources.mode}" arg2="true"/>
+		</condition>
+		<condition property="sources.no">
+			<equals arg1="${sources.mode}" arg2="false"/>
+		</condition>
+		
+		<antcall target="Package with sources"/>
+		<antcall target="Package without sources"/>
+	</target>
+	
+	<!-- Copy java sources -->
+	<target name="Package with sources" if="sources.yes">
+		<jar	destfile="${dist.dir}/${project.name}.${project.version}.jar"
+				basedir="${build.dir}">
+			<fileset dir="${src.dir}" includes="**/*.java"/>
+			
+			<manifest>
+				<attribute name="Class-Path" value="${class-path}"/>
+				<attribute name="Main-Class" value="${main-class}"/>
+			</manifest>
+		</jar>
+	</target>
+	<!-- or not -->
+	<target name="Package without sources" if="sources.no">
+		<jar	destfile="${dist.dir}/${project.name}.${project.version}.jar"
+				basedir="${build.dir}">
+			
+			<manifest>
+				<attribute name="Class-Path" value="${class-path}"/>
+				<attribute name="Main-Class" value="${main-class}"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="5. Compress" depends="4. Package">
+		<tar destfile="${dist.dir}/${project.name}.${project.version}.tar">
+			<fileset dir="${dist.dir}"/>
+		</tar>
+		
+		<antcall target="Archive compression"/>
+
+		<delete file="${dist.dir}/${project.name}.${project.version}.tar"/>
+	</target>
+	
+	<!-- Copy the resources files / config -->
+	<target name="Update resources">
+		<sync todir="${build.dir}/${resources.dir}">
+			<fileset dir="${resources.dir}"/>
+		</sync>
+		<sync todir="${build.dir}/${conf.dir}">
+			<fileset dir="${conf.dir}"/>
+		</sync>
+	</target>
+
+	<!-- Compressions -->
+	<target name="Compression type">
+		<condition property="compression-gz">
+		    <equals arg1="${archive.type}" arg2="gz"/>
+		</condition>
+		<condition property="compression-bz2">
+		    <equals arg1="${archive.type}" arg2="bz2"/>
+		</condition>
+		<condition property="compression-zip">
+		    <equals arg1="${archive.type}" arg2="zip"/>
+		</condition>
+	</target>
+	
+	<target name="Archive compression" depends="Compression type">
+		<antcall target="Compression gz"/>
+		<antcall target="Compression bz2"/>
+		<antcall target="Compression zip"/>
+	</target>
+	<target name="Compression gz" if="compression-gz">
+		<gzip src="${dist.dir}/${project.name}.${project.version}.tar" destfile="${dist.dir}/${project.name}.${project.version}.tar.gz"/>
+	</target>
+	<target name="Compression bz2" if="compression-bz2">
+		<bzip2 src="${dist.dir}/${project.name}.${project.version}.tar" destfile="${dist.dir}/${project.name}.${project.version}.tar.bz2"/>
+	</target>
+	<target name="Compression zip" if="compression-zip">
+		<zip src="${dist.dir}/${project.name}.${project.version}.tar" destfile="${dist.dir}/${project.name}.${project.version}.tar.zip"/>
 	</target>
 </project>
