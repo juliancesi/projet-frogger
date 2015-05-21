@@ -1,10 +1,5 @@
 package fr.cesi.graphic.fxmlcontroller;
 
-import fr.cesi.collisions.CollisionsEngine;
-import fr.cesi.collisions.ICollidable;
-import fr.cesi.graphic.animation.MoveController;
-import fr.cesi.graphic.bean.ICollisionsProperty;
-
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,11 +9,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+import fr.cesi.collisions.CollisionsEngine;
+import fr.cesi.collisions.ICollidable;
+import fr.cesi.graphic.animation.MoveController;
+import fr.cesi.graphic.bean.ICollisionsProperty;
 
 public abstract class AbstractController implements Initializable {
 
 	protected MoveController moveController = MoveController.getInstance();
-	protected Map<String, Node> nodesList;
+	protected Map<String, Node> collisionsNodesList;
+	protected Map<String, Node> otherNodesList;
 	
 	@FXML
 	Pane root;
@@ -41,32 +41,22 @@ public abstract class AbstractController implements Initializable {
 	}
 
 	protected void bindProperty(Node node) {
-		if(node instanceof ICollisionsProperty) {
-			if(nodesList == null) {
-				nodesList = new HashMap<String, Node>();
-			}
-			nodesList.put(node.getId(), node);
-		}
 		if(node instanceof ICollidable) {
 			CollisionsEngine.getInstance().addNode(node);
+		}		
+		
+		if(node instanceof ICollisionsProperty) {
+			if(collisionsNodesList == null) {
+				collisionsNodesList = new HashMap<String, Node>();
+			}
+			collisionsNodesList.put(node.getId(), node);
 		}
-//		if(node instanceof RectangleTile) {
-//			RectangleTile tile = (RectangleTile) node;
-//			System.out.println(tile.getCollisionsProperty());
-//			
-//			System.out.println(tile.getAnimationMoveProperty());
-//			
-//			MoveAnimation animation = tile.getAnimationMoveProperty();
-//			AbstractMoveAnimation animation2 = animation.getAnimation();
-//			
-//			if(animation2 instanceof SimpleTranslation) {
-//				SimpleTranslation animation3 = (SimpleTranslation) animation2;
-//				animation3.setTile(tile);
-//			
-//				animation3.play(KeyCode.UP);
-//			}
-//		
-//		}
+		else {
+			if(otherNodesList == null) {
+				otherNodesList = new HashMap<String, Node>();
+			}
+			otherNodesList.put(node.getId(), node);
+		}
 	}
 	
 	public Pane getRootPane() {
@@ -74,14 +64,17 @@ public abstract class AbstractController implements Initializable {
 	}
 	
 	public Node getNode(String id) {
-		if(nodesList != null || nodesList.size() > 0) {
-			return nodesList.get(id);
+		if((collisionsNodesList != null || collisionsNodesList.size() > 0) && collisionsNodesList.containsKey(id)) {
+			return collisionsNodesList.get(id);
+		}
+		else if((otherNodesList != null || otherNodesList.size() > 0) && otherNodesList.containsKey(id)) {
+			return otherNodesList.get(id);
 		}
 		return null;
 	}
 
 	public Map<String, Node> getAllNodes() {
-		return nodesList;
+		return collisionsNodesList;
 	}
 
 }

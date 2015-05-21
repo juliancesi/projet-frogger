@@ -1,12 +1,13 @@
 package fr.cesi.rules;
 
 import fr.cesi.application.CacheConfig;
+import fr.cesi.util.Utils;
 
 public class RulesKeeper {
 
 	private CacheConfig cacheConfig = CacheConfig.getInstance();
 	
-	private long round;
+	private long roundDuration;
 	private int lifes;
 	private boolean gameIsOver = false;
 	
@@ -18,7 +19,7 @@ public class RulesKeeper {
 	}
 	
 	private RulesKeeper() {
-		this.round = cacheConfig.getRoundDuration() * 1000; // millis to seconds
+		this.roundDuration = cacheConfig.getRoundDuration() * 1000; // millis to seconds
 		this.lifes = cacheConfig.getLifesNumber(); 
 	}
 	
@@ -39,14 +40,28 @@ public class RulesKeeper {
 	public boolean checkTimer() {
 		updateTimer();
 		
-		if(timer >= round) {
+		if(timer >= roundDuration) {
 			return false;
 		}
 		return true;
 	}
 	
+	/**
+	 * Gets the round duration.
+	 *
+	 * @return the round
+	 */
+	public long getRound() {
+		return roundDuration;
+	}
+	
+	/**
+	 * Gets the time to end.
+	 *
+	 * @return the time to end, long, return the time in rest before end in milliseconds.
+	 */
 	public long getTimeToEnd() {
-		return (round - timer) / 1000;
+		return roundDuration - timer;
 	}
 	
 	public void updateLifes() {
@@ -78,20 +93,20 @@ public class RulesKeeper {
 	}
 	
 	public enum ScoreType {
-		LIGNE(10),
-		ROUND(50);
-		
-		private int points;
-		ScoreType(int points) {
-			this.points = points;
-		}
-		public int getPoints() {
-			return points;
-		}
+		LINE,
+		ROUND;
 	}
+	
 	private int score = 0;
 	public void updateScore(ScoreType scoreType) {
-		score += scoreType.getPoints();
+		switch(scoreType) {
+		case LINE:
+			score += Utils.tryParseToInt(cacheConfig.getProperty("ligne.score"));
+			break;
+		case ROUND:
+			score *= getTimeToEnd() / 1000;
+			break;
+		}
 	}
 	
 	public int getScore() {

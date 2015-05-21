@@ -62,7 +62,7 @@ public class GameLoop {
 			// instructions called for each iteration
 			// timer
 			rulesKeeper.checkTimer();
-			updateBar(rulesKeeper.getTimeToEnd());
+			updateBar();
 
 			// obstacles
 			moveObjects();
@@ -104,10 +104,17 @@ public class GameLoop {
 			}
 		}
 
+		if(rulesKeeper.getTimeToEnd() <= 0) {
+			roundFinished();
+		}
 	}
 
-	private void updateBar(long timer) {
-		((GameAreaController) controller).updateTimerBar(timer);
+	private void updateBar() {
+		long timeInRest = rulesKeeper.getTimeToEnd();
+		long timeSinceStart = rulesKeeper.getRound() - timeInRest;
+		float pct = 100 - (timeSinceStart * 100 / rulesKeeper.getRound());
+		
+		((GameAreaController) controller).updateTimerBar(pct / 100);
 	}
 
 	private void moveObjects() {
@@ -125,29 +132,45 @@ public class GameLoop {
 			Integer collisionsType = checkCollisionsOnMove(xy, false);
 			Integer collisionsMovableNodesType = checkCollisionsOnMove(xy, true);
 
-			System.out.printf("static:%1s, movable:%2s", collisionsType, collisionsMovableNodesType).println();
-
 			if(collisionsType != null) {
 				if(collisionsType != 4) {
 					frogAnimation.playAnimation();
 					((ICollidable) frog).sendNewRiskyNode();
+					getCrossingLines();
 				} 
-
+				
 				if(collisionsType == 1 && collisionsMovableNodesType == null) {
 					frogAnimation.playAnimation();
 					roundFinished();
-				}
+				} 
 
 				if(collisionsType == 6) {
 					rulesKeeper.updateScore(ScoreType.ROUND);
 					roundFinished();
-				}
-
+				} 
+				
 			}
 
 		}
 
 		moveController.reset();
+	}
+	
+	private Double highestY;
+	private int crossingLines = 0;
+	private int getCrossingLines() {
+		double frogY = frog.getBoundsInParent().getMinY();
+		if(highestY == null) {
+			highestY = frogY;
+		}
+		
+		if(highestY > frogY) {
+			highestY = frogY;
+			crossingLines++;
+			
+			rulesKeeper.updateScore(ScoreType.LINE);
+		}
+		return crossingLines;
 	}
 
 	private Integer checkCollisionsOnMove(Double[] xy, boolean movableNodes) {
@@ -189,6 +212,7 @@ public class GameLoop {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
 		}
 		else {
 			stopGame();

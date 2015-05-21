@@ -1,20 +1,22 @@
 package fr.cesi.graphic.fxmlcontroller;
 
-import fr.cesi.graphic.animation.AbstractMoveAnimation;
-import fr.cesi.graphic.animation.Sprite;
-import fr.cesi.graphic.animation.MoveController.MoveKey;
-import fr.cesi.graphic.bean.MovableImageTile;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
+import fr.cesi.application.CacheConfig;
+import fr.cesi.graphic.animation.AbstractMoveAnimation;
+import fr.cesi.graphic.animation.MoveController.MoveKey;
+import fr.cesi.graphic.animation.Sprite;
+import fr.cesi.graphic.bean.MovableImageTile;
 
 public class GameAreaController extends AbstractController {
 	
@@ -23,14 +25,14 @@ public class GameAreaController extends AbstractController {
 	@FXML
 	private MovableImageTile frogClone;
 	private Double[] beginPosition;
-	@FXML
-	private ImageView lifes;
 	
 	private AbstractMoveAnimation animation;
 	private Sprite spriteAnim;
 	private boolean jumpExecuted = false;
 
 	private double timer;
+	
+	private CacheConfig cacheConfig = CacheConfig.getInstance();
 	
 	public GameAreaController() {
 	}
@@ -54,13 +56,17 @@ public class GameAreaController extends AbstractController {
 		Duration duration = Duration.millis(300);
 		spriteAnim = new Sprite(frog, width, height, columns, duration);
 	
-		int columnsFly = 3;
-		int rowsFly = 1;
-		double wFly = lifes.getImage().getWidth() / columnsFly;
-		double hFly = lifes.getImage().getHeight() / rowsFly;
-		Sprite spriteFly = new Sprite(lifes, wFly, hFly, columnsFly, Duration.millis(100));
-		spriteFly.setCycleCount(Timeline.INDEFINITE);
-		spriteFly.play();
+		for(int i = 0; i < cacheConfig.getLifesNumber(); i++) {
+			ImageView life = (ImageView) getNode("life" + i);
+			
+			int columnsFly = 3;
+			int rowsFly = 1;
+			double wFly = life.getImage().getWidth() / columnsFly;
+			double hFly = life.getImage().getHeight() / rowsFly;
+			Sprite spriteFly = new Sprite(life, wFly, hFly, columnsFly, Duration.millis(100));
+			spriteFly.setCycleCount(Timeline.INDEFINITE);
+			spriteFly.play();
+		}
 		
 	}
 	
@@ -89,7 +95,7 @@ public class GameAreaController extends AbstractController {
 	@FXML
 	private ProgressBar timerBar;
 	public void updateTimerBar(float timer) {
-		timerBar.setProgress(timer / 60);
+		timerBar.setProgress(timer);
 	}
 	
 	public void resetFrogPosition() {
