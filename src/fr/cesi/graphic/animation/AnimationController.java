@@ -59,7 +59,6 @@ public class AnimationController {
 	}
 	
 	public void playAnimation() {
-		System.out.println(animatedNodes.size());
 		for(Node node : animatedNodes.keySet()) {
 			playAnimation(node);
 		}

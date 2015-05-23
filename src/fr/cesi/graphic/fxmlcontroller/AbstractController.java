@@ -8,11 +8,14 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import fr.cesi.collisions.CollisionsEngine;
 import fr.cesi.collisions.ICollidable;
 import fr.cesi.graphic.animation.MoveController;
 import fr.cesi.graphic.bean.ICollisionsProperty;
+import fr.cesi.graphic.bean.MovableImageTile;
 
 public abstract class AbstractController implements Initializable {
 
@@ -40,7 +43,8 @@ public abstract class AbstractController implements Initializable {
 			bindProperty(parent);
 		}
 	}
-
+	
+	protected Map<String, Image> imageLst = new HashMap<String, Image>();
 	protected void bindProperty(Node node) {
 		if(node instanceof ICollidable) {
 			((ICollidable) node).setCollisionsEngine(collisionsEngine);
@@ -52,6 +56,16 @@ public abstract class AbstractController implements Initializable {
 				collisionsNodesList = new HashMap<String, Node>();
 			}
 			collisionsNodesList.put(node.getId(), node);
+			
+			Image nodeImg = ((ImageView) node).getImage();
+			String nodeImgUrl = nodeImg.impl_getUrl();
+			if(imageLst.containsKey(nodeImgUrl)) {
+				((ImageView) node).setImage(imageLst.get(nodeImgUrl));
+			}
+			else {
+				imageLst.put(nodeImgUrl, nodeImg);
+			}
+			
 		}
 		else {
 			if(otherNodesList == null) {
@@ -59,6 +73,7 @@ public abstract class AbstractController implements Initializable {
 			}
 			otherNodesList.put(node.getId(), node);
 		}
+		
 	}
 	
 	public Pane getRootPane() {

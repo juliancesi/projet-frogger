@@ -74,7 +74,10 @@ public class SceneLoader {
 	public void loadGame() throws IOException {
 		setScene(loadFxmlView(GAME));
 
-		gameLoop = new GameLoop(getFxmlController());
+		if(gameLoop == null) {
+			gameLoop = new GameLoop();
+		}
+		gameLoop.setController(getFxmlController());
 		gameLoop.startGame();
 	}
 

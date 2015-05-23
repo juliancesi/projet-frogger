@@ -41,6 +41,14 @@
                               <Insets left="10.0" top="10.0" />
                            </VBox.margin>
                         </Text>
+                        <Text fx:id="displayScores1" fill="WHITE" onMouseClicked="#quitter" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Quitter" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" top="150.0" />
+                           </VBox.margin>
+                        </Text>
                      </children>
                   </VBox>
                   <ImageView fx:id="frog" fitHeight="75.0" fitWidth="100.0" layoutX="427.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">

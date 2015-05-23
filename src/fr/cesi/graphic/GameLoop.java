@@ -6,6 +6,8 @@ import java.util.Map;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import fr.cesi.application.SceneLoader;
 import fr.cesi.collisions.CollisionsEngine;
@@ -34,9 +36,16 @@ public class GameLoop {
 	private CollisionsEngine collisionsEngine;
 	private AnimationController animationController;
 	private RulesKeeper rulesKeeper = RulesKeeper.getInstance();
-
+	private MediaPlayer media;
+	
+	public GameLoop() {
+	}
+	
 	public GameLoop(AbstractController controller) {
-		this.controller = controller;
+		setController(controller);
+	}
+	
+	public void initialize() {
 		this.frog = (Node) controller.getNode("frog");
 		frogAnimation = ((IAnimationMoveProperty) frog).getAnimationMoveProperty().getAnimation();
 		frogAnimation.setTile((Node) frog); 
@@ -57,6 +66,13 @@ public class GameLoop {
 				}
 			}
 		}
+		
+		media = new MediaPlayer(new Media(Utils.loadResource("resources/sounds/coaa.mp3").toString()));
+	}
+	
+	public void setController(AbstractController controller) {
+		this.controller = controller;
+		initialize();
 	}
 
 	private void buildGameLoop() {
@@ -137,12 +153,16 @@ public class GameLoop {
 
 			if(collisionsType != null) {
 				if(collisionsType != 4) {
+					media.stop();
+					media.play();
 					frogAnimation.playAnimation();
 					((ICollidable) frog).sendNewRiskyNode();
 					getCrossingLines();
 				} 
 				
 				if(collisionsType == 1 && collisionsMovableNodesType == null) {
+					media.stop();
+					media.play();
 					frogAnimation.playAnimation();
 					roundFinished();
 				} 

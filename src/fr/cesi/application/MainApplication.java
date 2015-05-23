@@ -1,7 +1,12 @@
 package fr.cesi.application;
 
+import java.net.URL;
+
 import javafx.application.Application;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import fr.cesi.util.Utils;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -16,6 +21,14 @@ public class MainApplication extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		SceneLoader graphicsEngine = new SceneLoader(primaryStage);
 		graphicsEngine.launch();
+		
+		URL url = Utils.loadResource("resources/sounds/themeFrogger.mp3");
+		String stu = url.toString();
+		
+		Media media = new Media(stu);
+		MediaPlayer mediaPlayer = new MediaPlayer(media);
+		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+		mediaPlayer.play();
 	}
 	
 	/**
