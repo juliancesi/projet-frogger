@@ -95,7 +95,11 @@ public class MenuController extends AbstractController {
 	protected void displayScores() {
 		try {
 			HighScore highScore = null;
-			highScore = Utils.deserialize(HighScore.class, "highscore");
+			try {
+				highScore = Utils.deserialize(HighScore.class, "highscore");
+			} catch(IOException ioEx) {
+				System.err.println("cannot find the highscore file");
+			}
 			
 			SceneLoader.getInstance().loadScore(highScore, false);
 		} catch(IOException ioEx) {
@@ -110,13 +114,17 @@ public class MenuController extends AbstractController {
 	 * @param newHighScore the new high score
 	 */
 	public void setHighScore(HighScore score, boolean newHighScore) {
-		if(!newHighScore) {
+		if(score != null && !newHighScore) {
 			this.score.setText(String.valueOf(score.getScore()));
 			this.pseudo.setText(score.getPseudo());
 		}
-		if(newHighScore && score != null) {
+		else if(newHighScore && score != null && score.getScore() != 0) {
 			this.newHighScore.setVisible(true);
 			this.newScore.setText(String.valueOf(score.getScore()));
+		}
+		else {
+			this.score.setText(String.valueOf(0));
+			this.pseudo.setText("Nobody");
 		}
 	}
 	

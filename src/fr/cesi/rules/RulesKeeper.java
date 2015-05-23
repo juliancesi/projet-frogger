@@ -191,13 +191,15 @@ public class RulesKeeper {
 	 *
 	 * @param scoreType the score type
 	 */
+	private int roundScore = 0;
 	public void updateScore(ScoreType scoreType) {
 		switch(scoreType) {
 		case LINE:
-			score += Utils.tryParseToInt(cacheConfig.getProperty("ligne.score"));
+			roundScore += Utils.tryParseToInt(cacheConfig.getProperty("ligne.score"));
 			break;
 		case ROUND:
-			score *= getTimeToEnd() / 1000;
+			score += roundScore * getTimeToEnd() / 1000;
+			roundScore = 0;
 			break;
 		}
 	}

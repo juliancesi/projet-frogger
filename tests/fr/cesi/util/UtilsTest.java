@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.junit.Test;
 
@@ -52,7 +53,12 @@ public class UtilsTest {
 	
 	@Test
 	public void deserialize() {
-		String test = Utils.deserialize(String.class, "serialize.test");
+		String test = null;
+		try {
+			test = Utils.deserialize(String.class, "serialize.test");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		assertEquals(test.toString(), "test");
 	}
 }

@@ -121,7 +121,7 @@ public class Utils {
 		}
 	}
 	
-	public static <T> T deserialize(Class<T> bean, String path) {
+	public static <T> T deserialize(Class<T> bean, String path) throws IOException {
 		T newObject = null;
 		
 		ObjectInputStream inputStream = null;
@@ -129,7 +129,8 @@ public class Utils {
 			inputStream = new ObjectInputStream(file);
 			newObject = (T) inputStream.readObject();
 		} catch(IOException ioEx) {
-			ioEx.printStackTrace();
+//			ioEx.printStackTrace();
+			System.err.printf("file not found : %1$s", ioEx);
 		} catch (ClassNotFoundException classNotFoundEx) {
 			classNotFoundEx.printStackTrace();
 		} finally {
@@ -138,7 +139,8 @@ public class Utils {
 					inputStream.close();
 				}
 			} catch (IOException ioCloseEx) {
-				ioCloseEx.printStackTrace();
+//				ioCloseEx.printStackTrace();
+				System.err.printf("file not found : %1$s", ioCloseEx);
 			}
 
 		}

@@ -9,7 +9,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
-import fr.cesi.application.CacheConfig;
 import fr.cesi.graphic.animation.Sprite;
 import fr.cesi.rules.RulesKeeper;
 import fr.cesi.rules.RulesKeeper.Difficulty;
