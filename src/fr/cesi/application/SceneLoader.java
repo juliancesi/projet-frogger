@@ -3,10 +3,10 @@ package fr.cesi.application;
 import static fr.cesi.graphic.FxmlOverview.FxmlView.*;
 import static fr.cesi.graphic.FxmlOverview.getFxmlController;
 import static fr.cesi.graphic.FxmlOverview.loadFxmlView;
-import fr.cesi.collisions.CollisionsEngine;
 import fr.cesi.graphic.GameLoop;
 import fr.cesi.graphic.bean.HighScore;
 import fr.cesi.graphic.fxmlcontroller.MenuController;
+import fr.cesi.graphic.fxmlcontroller.SettingsController;
 
 import java.io.IOException;
 
@@ -15,21 +15,32 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 
+// TODO: Auto-generated Javadoc
 /**
- * The class to load and display scenes in the window
+ * The class to load and display scenes in the window.
  */
 public class SceneLoader {
 
+	/** The primary stage. */
 	private Stage primaryStage;
+	
+	/** The game loop. */
 	private GameLoop gameLoop;
+	
+	/** The instance. */
 	private static SceneLoader instance;
 
+	/**
+	 * Gets the single instance of SceneLoader.
+	 *
+	 * @return single instance of SceneLoader
+	 */
 	public static SceneLoader getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Instantiates and loads a scene in the window primaryStage 
+	 * Instantiates and loads a scene in the window primaryStage .
 	 *
 	 * @param primaryStage the window
 	 * @throws Exception the exception
@@ -85,13 +96,23 @@ public class SceneLoader {
 	 * Load the score view.
 	 *
 	 * @param score the score
+	 * @param newHighScore the new high score
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public void loadScore(HighScore score, boolean newHighScore) throws IOException {
 		setScene(loadFxmlView(SCORE));
 		MenuController controller = ((MenuController) getFxmlController());
 		controller.setHighScore(score, newHighScore);
+	}
 
+	/**
+	 * Load settings.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	public void loadSettings() throws IOException {
+		setScene(loadFxmlView(SETTINGS));
+		SettingsController controller = ((SettingsController) getFxmlController());
 	}
 
 	/**

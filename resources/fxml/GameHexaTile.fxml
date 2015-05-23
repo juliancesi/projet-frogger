@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="root" onKeyPressed="#move" onKeyReleased="#move" prefHeight="600.0" prefWidth="788.0" style="-fx-background-color: #292929;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.cesi.graphic.fxmlcontroller.GameAreaController">
+<BorderPane fx:id="root" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#move" onKeyReleased="#move" prefHeight="600.0" prefWidth="788.0" style="-fx-background-color: #292929;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.cesi.graphic.fxmlcontroller.GameAreaController">
 	<center>
 		<VBox fx:id="vbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="788.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
 			<children>

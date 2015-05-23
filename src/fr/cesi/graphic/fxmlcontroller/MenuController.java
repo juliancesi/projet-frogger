@@ -14,30 +14,53 @@ import javafx.util.Duration;
 import fr.cesi.application.SceneLoader;
 import fr.cesi.graphic.animation.Sprite;
 import fr.cesi.graphic.bean.HighScore;
+import fr.cesi.rules.RulesKeeper;
 import fr.cesi.util.Utils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MenuController.
+ */
 public class MenuController extends AbstractController {
 
+	/**
+	 * Instantiates a new menu controller.
+	 */
 	public MenuController() {
 	}
 	
+	/** The frog. */
 	@FXML
 	private ImageView frog;
+	
+	/** The quitter. */
 	@FXML
 	private Text quitter;
+	
+	/** The pseudo. */
 	@FXML
 	private Text pseudo;
+	
+	/** The score. */
 	@FXML
 	private Text score;
 	
+	/** The new high score. */
 	@FXML
 	private Pane newHighScore;
+	
+	/** The new score. */
 	@FXML
 	private Text newScore;
+	
+	/** The new pseudo. */
 	@FXML
 	private TextField newPseudo;
 
 
+	/* (non-Javadoc)
+	 * @see fr.cesi.graphic.fxmlcontroller.AbstractController#initialize(java.net.URL, java.util.ResourceBundle)
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
@@ -52,29 +75,22 @@ public class MenuController extends AbstractController {
 		spriteFrog.play();
 	}
 	
+	/**
+	 * Play game.
+	 */
 	@FXML
 	protected void playGame() {
 		try {
+			RulesKeeper.getInstance().initialize();
 			SceneLoader.getInstance().loadGame();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	@FXML
-	protected void quitter() {
-		System.exit(0);
-	}
-
-	@FXML
-	protected void menu() {
-		try {
-			SceneLoader.getInstance().loadMenu();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
+	/**
+	 * Display scores.
+	 */
 	@FXML
 	protected void displayScores() {
 		try {
@@ -87,6 +103,12 @@ public class MenuController extends AbstractController {
 		}
 	}
 	
+	/**
+	 * Sets the high score.
+	 *
+	 * @param score the score
+	 * @param newHighScore the new high score
+	 */
 	public void setHighScore(HighScore score, boolean newHighScore) {
 		if(!newHighScore) {
 			this.score.setText(String.valueOf(score.getScore()));
@@ -98,6 +120,9 @@ public class MenuController extends AbstractController {
 		}
 	}
 	
+	/**
+	 * Save new score.
+	 */
 	@FXML
 	protected void saveNewScore() {
 		HighScore highScore = new HighScore(newPseudo.getText(), Long.parseLong(newScore.getText()));
@@ -106,4 +131,17 @@ public class MenuController extends AbstractController {
 		Utils.serialize(highScore, "highscore");
 		this.newHighScore.setVisible(false);
 	}
+	
+	/**
+	 * Display settings.
+	 */
+	@FXML
+	protected void displaySettings() {
+		try {
+			SceneLoader.getInstance().loadSettings();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }

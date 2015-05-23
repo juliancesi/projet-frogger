@@ -27,6 +27,9 @@ public class FxmlOverview {
 		
 		/** The score fxml. */
 		SCORE("ScoreOverview.fxml"),
+		
+		/** The settings. */
+		SETTINGS("SettingsOverview.fxml"),
 		;
 
 		/** The fxml file. */

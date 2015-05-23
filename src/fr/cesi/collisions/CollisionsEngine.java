@@ -302,14 +302,14 @@ public class CollisionsEngine implements INodesMediator {
 	//////////////////////////////////////////////////////////
 
 	/** The collidable nodes. */
-	private Set<ICollidable> collidableNodes = new HashSet<ICollidable>();
+	private Map<String, ICollidable> collidableNodes = new HashMap<String, ICollidable>();
 	
 	/* (non-Javadoc)
 	 * @see collisions.INodesMediator#addNode(javafx.scene.Node)
 	 */
 	@Override
 	public void addNode(Node node) {
-		collidableNodes.add((ICollidable) node);
+		collidableNodes.put(node.getId(), (ICollidable) node);
 	}
 
 	/* (non-Javadoc)
@@ -317,8 +317,9 @@ public class CollisionsEngine implements INodesMediator {
 	 */
 	@Override
 	public void sendNewRiskyNode(Node collidableNode) {
-		for(ICollidable node : collidableNodes) {
-			if(!((Node) node).getId().equals(collidableNode.getId()) && !node.isCollided()) {
+		for(String nodeId : collidableNodes.keySet()) {
+			ICollidable node = ((ICollidable) collidableNodes.get(nodeId));
+			if(!nodeId.equals(collidableNode.getId()) && !node.isCollided()) {
 				node.receiveRiskNode(collidableNode);
 			}
 		}

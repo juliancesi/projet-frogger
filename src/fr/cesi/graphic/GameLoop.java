@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package fr.cesi.graphic;
 
 import java.io.IOException;
@@ -26,25 +29,57 @@ import fr.cesi.rules.RulesKeeper;
 import fr.cesi.rules.RulesKeeper.ScoreType;
 import fr.cesi.util.Utils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GameLoop.
+ */
 public class GameLoop {
 
+	/** The game loop. */
 	private Timeline gameLoop;
+	
+	/** The move controller. */
 	private MoveController moveController;
+	
+	/** The controller. */
 	private AbstractController controller;
+	
+	/** The frog. */
 	private Node frog;
+	
+	/** The frog animation. */
 	private AbstractMoveAnimation frogAnimation;
+	
+	/** The collisions engine. */
 	private CollisionsEngine collisionsEngine;
+	
+	/** The animation controller. */
 	private AnimationController animationController;
+	
+	/** The rules keeper. */
 	private RulesKeeper rulesKeeper = RulesKeeper.getInstance();
+	
+	/** The media. */
 	private MediaPlayer media;
 	
+	/**
+	 * Instantiates a new game loop.
+	 */
 	public GameLoop() {
 	}
 	
+	/**
+	 * Instantiates a new game loop.
+	 *
+	 * @param controller the controller
+	 */
 	public GameLoop(AbstractController controller) {
 		setController(controller);
 	}
 	
+	/**
+	 * Initialize.
+	 */
 	public void initialize() {
 		this.frog = (Node) controller.getNode("frog");
 		frogAnimation = ((IAnimationMoveProperty) frog).getAnimationMoveProperty().getAnimation();
@@ -54,8 +89,8 @@ public class GameLoop {
 
 		buildGameLoop();
 		
-		animationController = new AnimationController(rulesKeeper);
-
+		animationController = new AnimationController();
+	
 		animationController.setBounds(controller.getRootPane().getBoundsInLocal().getWidth(), controller.getRootPane().getBoundsInLocal().getHeight());
 		Map<String, Node> nodesList;
 		for(String key : (nodesList = controller.getAllNodes()).keySet()) {
@@ -68,13 +103,25 @@ public class GameLoop {
 		}
 		
 		media = new MediaPlayer(new Media(Utils.loadResource("resources/sounds/coaa.mp3").toString()));
+		
+		System.out.printf("Difficulté: %1$s", rulesKeeper.getMod()).println();
+		System.out.printf("Nombre de vies restantes: %1$s", rulesKeeper.getLifes()).println();
+		System.out.printf("Vitesse: %1$s", rulesKeeper.getSpeed()).println();
 	}
 	
+	/**
+	 * Sets the controller.
+	 *
+	 * @param controller the new controller
+	 */
 	public void setController(AbstractController controller) {
 		this.controller = controller;
 		initialize();
 	}
 
+	/**
+	 * Builds the game loop.
+	 */
 	private void buildGameLoop() {
 		Duration loopSpeed = Duration.millis(1000 / (float) 30);
 		KeyFrame loopFrame = new KeyFrame(loopSpeed, actionEvent -> {
@@ -99,6 +146,9 @@ public class GameLoop {
 		setGameLoop(gameLoop);
 	}
 
+	/**
+	 * Check game rules.
+	 */
 	private void checkGameRules() {
 		Node nodeCollided = null;
 		if(((ICollidable) frog).isCollided() && ((MovableImageTile) frog).getNodeCollided() != null) {
@@ -128,6 +178,9 @@ public class GameLoop {
 		}
 	}
 
+	/**
+	 * Update bar.
+	 */
 	private void updateBar() {
 		long timeInRest = rulesKeeper.getTimeToEnd();
 		long timeSinceStart = rulesKeeper.getRound() - timeInRest;
@@ -136,10 +189,16 @@ public class GameLoop {
 		((GameAreaController) controller).updateTimerBar(pct / 100);
 	}
 
+	/**
+	 * Move objects.
+	 */
 	private void moveObjects() {
 		animationController.playAnimation();
 	}
 
+	/**
+	 * Move player.
+	 */
 	private void movePlayer() {
 		if(moveController == null) {
 			moveController = MoveController.getInstance();
@@ -149,6 +208,7 @@ public class GameLoop {
 
 			Double[] xy = frogAnimation.getCoordinates();
 			Integer collisionsType = checkCollisionsOnMove(xy, false);
+			
 			Integer collisionsMovableNodesType = checkCollisionsOnMove(xy, true);
 
 			if(collisionsType != null) {
@@ -168,6 +228,7 @@ public class GameLoop {
 				} 
 
 				if(collisionsType == 6) {
+					((GameAreaController) controller).lockHome(nextNode);
 					rulesKeeper.updateScore(ScoreType.ROUND);
 					roundFinished();
 				} 
@@ -179,8 +240,17 @@ public class GameLoop {
 		moveController.reset();
 	}
 	
+	/** The highest y. */
 	private Double highestY;
+	
+	/** The crossing lines. */
 	private int crossingLines = 0;
+	
+	/**
+	 * Gets the crossing lines.
+	 *
+	 * @return the crossing lines
+	 */
 	private int getCrossingLines() {
 		double frogY = frog.getBoundsInParent().getMinY();
 		if(highestY == null) {
@@ -196,34 +266,66 @@ public class GameLoop {
 		return crossingLines;
 	}
 
+	/** The next node. */
+	private Node nextNode;
+	
+	/**
+	 * Check collisions on move.
+	 *
+	 * @param xy the xy
+	 * @param movableNodes the movable nodes
+	 * @return the integer
+	 */
 	private Integer checkCollisionsOnMove(Double[] xy, boolean movableNodes) {
 		Node collidedNode = null;
 		if((collidedNode  = collisionsEngine.checkCollisionsFuture(xy, movableNodes)) != null) {
 			int collisionProperty = ((ICollisionsProperty) collidedNode).getCollisionsProperty();
 //			return Utils.binaryOperationAND(((ICollisionsProperty) frog).getCollisionsProperty(), collisionProperty);
+			if(collidedNode != null) nextNode = collidedNode;
 			return collisionProperty;
 		}
 		return null;
 	}
 
+	/**
+	 * Sets the game loop.
+	 *
+	 * @param gameLoop the new game loop
+	 */
 	private void setGameLoop(Timeline gameLoop) {
 		this.gameLoop = gameLoop;
 	}
 
+	/**
+	 * Gets the game loop.
+	 *
+	 * @return the game loop
+	 */
 	public Timeline getGameLoop() {
 		return gameLoop;
 	}
 
+	/**
+	 * Start game.
+	 */
 	public void startGame() {
 		getGameLoop().playFromStart();
 		rulesKeeper.startTimer();
 	}
 
+	/**
+	 * Stop game.
+	 */
 	public void stopGame() {
 		getGameLoop().stop();
 	}
 
+	/** The g engine. */
 	private SceneLoader gEngine = SceneLoader.getInstance();
+	
+	/**
+	 * Round finished.
+	 */
 	public void roundFinished() {
 		stopGame();
 		if(!rulesKeeper.getGameIsOver()) {

@@ -5,79 +5,104 @@ import java.util.Map;
 
 import javafx.scene.Node;
 import fr.cesi.graphic.bean.IAnimationMoveProperty;
-import fr.cesi.rules.RulesKeeper;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AnimationController.
+ */
 public class AnimationController {
 	
-	private Map<Node, AbstractMoveAnimation> animatedNodes = new HashMap<Node, AbstractMoveAnimation>();
+	/** The animated nodes. */
+	private Map<Node, AbstractMoveAnimation> animatedNodes;
 	
+	/** The stage width. */
 	private double stageWidth;
+	
+	/** The stage height. */
 	private double stageHeight;
 	
-	private RulesKeeper rulesKeeper;
-	
-	public AnimationController(RulesKeeper rulesKeeper) {
-		this.rulesKeeper = rulesKeeper;
+	/**
+	 * Instantiates a new animation controller.
+	 */
+	public AnimationController() {
+		animatedNodes = new HashMap<Node, AbstractMoveAnimation>();
 	}
 
+	/**
+	 * Adds the node.
+	 *
+	 * @param node the node
+	 */
 	public void addNode(Node node) {
 		if(!animatedNodes.containsKey(node)) {
-			animatedNodes.put(node, setAnimation(node));
+			AbstractMoveAnimation animation = ((IAnimationMoveProperty) node).getMoveAnimation();
+			animation.setTile(node);
+			
+			animatedNodes.put(node, animation);
 		}
 	}
 	
-	public void addAllNode(Map<String, Node> nodesList) {
-		for(String key : nodesList.keySet()) {
-			addNode(nodesList.get(key));
-		}
-	}
-	
+	/**
+	 * Gets the animated nodes.
+	 *
+	 * @return the animated nodes
+	 */
 	public Map<Node, AbstractMoveAnimation> getAnimatedNodes() {
 		return animatedNodes;
 	}
 	
-	private AbstractMoveAnimation setAnimation(Node node) {
-		AbstractMoveAnimation animation = ((IAnimationMoveProperty) node).getMoveAnimation();
-		animation.setTile(node);
-		return animation;
-	}
-	
+	/**
+	 * Play animation.
+	 *
+	 * @param node the node
+	 */
 	public void playAnimation(Node node) {
 		checkOutOfBounds(node);
 		animatedNodes.get(node).playAnimation();
 	}
 
-	public void playAnimation(String nodeId) {
-		for(Node n : animatedNodes.keySet()) {
-			if(n.getId().equals(nodeId)) {
-				playAnimation(n);
-			}
-			else {
-				System.out.println("non");
-			}
-		}
-	}
-	
+	/**
+	 * Play animation.
+	 */
 	public void playAnimation() {
 		for(Node node : animatedNodes.keySet()) {
 			playAnimation(node);
 		}
 	}
 	
+	/**
+	 * Check out of bounds.
+	 *
+	 * @param node the node
+	 */
 	private void checkOutOfBounds(Node node) {
+		if(node.getId().equals("frog") && ((node.getBoundsInParent().getMaxX() < 0))) {
+			node.setLayoutX(stageWidth);
+			node.setTranslateX(-node.getBoundsInLocal().getWidth());
+		}
+		else if(node.getId().equals("frog") && ((node.getBoundsInParent().getMaxX() > stageWidth))) {
+			node.setLayoutX(0);
+			node.setTranslateX(-node.getBoundsInLocal().getWidth());
+		}
+		
 		if((((IAnimationMoveProperty) node).getAnimationMoveProperty() == MoveAnimation.LEFT_TRANSLATION) && 				
 				(node.getBoundsInParent().getMaxX() < 0)) {
 			node.setLayoutX(node.getParent().getBoundsInLocal().getWidth());
 			node.setTranslateX(-node.getBoundsInLocal().getWidth());
 		}
-		if((((IAnimationMoveProperty) node).getAnimationMoveProperty() == MoveAnimation.RIGHT_TRANSLATION) && 				
+		else if((((IAnimationMoveProperty) node).getAnimationMoveProperty() == MoveAnimation.RIGHT_TRANSLATION) && 				
 				(node.getBoundsInParent().getMinX() > stageWidth)) {
 			node.setLayoutX(0);
 			node.setTranslateX(-node.getBoundsInLocal().getWidth());
 		}
-		
 	}
 
+	/**
+	 * Sets the bounds.
+	 *
+	 * @param width the width
+	 * @param height the height
+	 */
 	public void setBounds(double width, double height) {
 		stageWidth = width;
 		stageHeight = height;

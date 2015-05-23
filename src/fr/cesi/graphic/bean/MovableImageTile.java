@@ -120,7 +120,7 @@ public class MovableImageTile extends ImageView implements ICollisionsProperty, 
 		
 		Node collisionsTo = collisionsEngine.checkCollisions(this, collidableNode);
 		if(collisionsTo != null) {
-			System.out.printf("collision: [%1s] avec [%2s]", this.getId(), collidableNode.getId()).println();
+//			System.out.printf("collision: [%1s] avec [%2s]", this.getId(), collidableNode.getId()).println();
 			setIsCollided();
 			setNodeCollided(collidableNode);
 		}
