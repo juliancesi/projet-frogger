@@ -1,1 +1,8 @@
-collisions
+fr.cesi.application
+fr.cesi.collisions
+fr.cesi.graphic
+fr.cesi.graphic.animation
+fr.cesi.graphic.bean
+fr.cesi.graphic.fxmlcontroller
+fr.cesi.rules
+fr.cesi.util

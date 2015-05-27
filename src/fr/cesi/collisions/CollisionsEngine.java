@@ -1,15 +1,14 @@
 package fr.cesi.collisions;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-import fr.cesi.util.Utils;
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import fr.cesi.util.Utils;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class CollisionsEngine.
  */
@@ -24,6 +23,9 @@ public class CollisionsEngine implements INodesMediator {
 	/** The collidable nodes list. */
 	private Map<String, Node> collidableNodesList = new HashMap<String, Node>();
 
+	/**
+	 * Instantiates a new collisions engine.
+	 */
 	public CollisionsEngine() {
 	}
 	

@@ -6,19 +6,33 @@ import java.util.Properties;
 
 import fr.cesi.util.Utils;
 
+// TODO: Auto-generated Javadoc
 /**
- * The class load the config file and offers methods to get the properties
+ * The class load the config file and offers methods to get the properties.
  */
 public class CacheConfig {
 
+	/** The configfile. */
 	private final String CONFIGFILE = "conf/config.ini"; 
+	
+	/** The properties. */
 	private Properties properties = new Properties();
+	
+	/** The instance. */
 	private static CacheConfig instance = new CacheConfig();
 
+	/**
+	 * Gets the single instance of CacheConfig.
+	 *
+	 * @return single instance of CacheConfig
+	 */
 	public static CacheConfig getInstance() {
 		return instance;
 	}
 
+	/**
+	 * Instantiates a new cache config.
+	 */
 	private CacheConfig() {
 		ClassLoader classLoader = getClass().getClassLoader();
 		try(InputStream bis = classLoader.getResourceAsStream(CONFIGFILE)) {
@@ -50,6 +64,7 @@ public class CacheConfig {
 	/**
 	 * Get the duration of a round.
 	 *
+	 * @param id the id
 	 * @return  the property
 	 */
 	public Integer getRoundDuration(int id) {
